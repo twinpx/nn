@@ -1,0 +1,29 @@
+#plan
+  position relative
+  
+.b-plan
+  position absolute
+  top 0
+  left 0
+  width 100%
+  opacity 0
+  transition( opacity .5s ease )
+  z-index 0
+  
+  &__ph
+  
+    &__text
+      margin 20px 0 40px
+    
+      div
+        height 7px
+        background-color $placeholder-color
+        margin-bottom 15px
+        
+        &:last-child
+          width 70%
+  
+    &__map
+      background-color $placeholder-color
+      height 500px
+      transition( opacity .5s ease )

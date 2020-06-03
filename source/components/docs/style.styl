@@ -1,0 +1,75 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+  
+  .b-docs
+    position static
+    width auto
+    opacity 1
+    
+  .b-docs__ph
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    z-index -1
+    
+#docs
+    
+  @media (max-width: 992px)
+    .b-heading__h span
+        font-size 12pt
+    
+  @media (max-width: 600px)
+    .b-heading__h span
+        font-size 8pt
+    
+.b-docs
+  display flex
+  justify-content space-between
+  align-items stretch
+  flex-wrap wrap
+  
+  &__item
+    width calc( 100% / 3 - 30px * 2 / 3 )
+    padding 30px
+    display flex
+    justify-content space-between
+    align-items stretch
+    color $text-color
+    transition( background-color .5s ease )
+    
+    a&:hover
+      color $text-color
+      background-color #f2f2f2
+      opacity 1
+      
+    @media( max-width 992px )
+      width calc( 100% / 2 - 30px / 2 )
+      
+    @media( max-width 600px )
+      width 100%
+      padding 0
+      margin-bottom 30px
+      
+  &:after
+    content ''
+    display block
+    width calc( 100% / 3 - 30px * 2 / 3 )
+    
+    @media( max-width 992px )
+      display none
+    
+  &__icon
+    width 60px
+    height 70px
+    margin-right 20px
+    background url( './images/docs.svg' ) no-repeat center
+    background-size contain
+    
+  &__text
+    font-size 14px
+    width calc( 100% - 70px )
+    line-height 1.2
+    margin-top 15px

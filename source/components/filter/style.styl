@@ -1,0 +1,419 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+
+  .b-prices__ph
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    z-index -1
+    
+  .b-filter
+    position static
+    width auto
+    opacity 1
+  
+.b-filter
+  
+  &-btn
+    height 49px
+    width 100%
+    background-color #f7f7f7
+    position relative
+    cursor pointer
+    display none
+  
+    @media( max-width 600px )
+      display block
+  
+    i
+      background-repeat no-repeat
+      background-position right top
+      width 24px
+      height 24px
+      display block
+      position absolute
+      top 14px
+      right 17px
+    
+    span
+      display none
+      line-height 49px
+      padding-left 12px
+      color #666666
+      
+      &.i-show
+        display inline-block
+
+.b-filter-body
+  background-color #f7f7f7
+  padding 38px 12px
+  //height 540px
+  
+  @media( max-width 600px )
+    display none    
+  
+  label
+    font-size 9pt
+    font-weight bold
+    text-transform uppercase
+    padding-bottom 10px
+    margin-bottom 40px
+    border-bottom 1px solid #c7c7bb
+    display block
+    color #333333
+    word-break break-all
+    padding-right 75px
+    
+    &:last-of-type
+      padding-right 0
+    
+  .ui-widget
+    font-family "Akrobat", "Open Sans Condensed", Arial, sans-serif
+    
+  .ui-widget.ui-widget-content
+    height 7px
+    background-color #f1f1f1
+    box-shadow 0 1px 0 rgba( 153,153,153,.39 ) inset
+    border-radius 0
+    border none
+    
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default,
+  .ui-button,
+  html .ui-button.ui-state-disabled:hover,
+  html .ui-button.ui-state-disabled:active
+    width 24px
+    height 24px
+    border-radius 12px
+    background-color #fff
+    border 3px solid $brand-color-2
+    top -9px
+    margin-left -12px
+    
+    &:focus
+      outline none
+    
+  .ui-slider .ui-slider-range
+    background-color $brand-color-2
+    height 7px
+    
+  .ui-slider-handle
+    
+    span
+      position absolute
+      bottom 30px
+      left 0
+      font-size 8pt
+      font-weight bold
+      width 24px
+      text-align center
+      
+  .ui-state-active,
+  .ui-widget-content .ui-state-active,
+  .ui-widget-header .ui-state-active,
+  a.ui-button:active,
+  .ui-button:active,
+  .ui-button.ui-state-active:hover
+    color #333
+    
+.b-filter
+    
+  &__input
+    text-align right
+    line-height 15px
+    font-size 9pt
+    transform( translateY( 19px ))
+    
+    input[ type="text" ]:not(.browser-default)
+      height 20px
+      line-height 20px
+      font-size 7pt
+      display inline-block
+      width 20px
+      margin 0
+      border none
+      background-color #cabb47dd
+      text-align center
+      color #fff
+      
+      &:focus:not([readonly])
+        border none
+        box-shadow none
+
+  &__wrapper
+    margin-bottom 35px
+    height 7px
+    background-color #f1f1f1
+    box-shadow 0 1px 0 rgba( 153,153,153,.39 ) inset
+    border-radius 4px
+    border none
+    padding 0 12px
+  
+.b-filter-price-value
+  font-size 9pt
+  margin -32px 0 17px
+
+.b-filter-reset
+  font-size 9pt
+  cursor pointer
+  margin-top 50px
+  
+.b-filter
+
+  thead,
+  tr,
+  th
+    background-color #fff
+  
+  th
+    position sticky
+    position -webkit-sticky
+    top 0
+    z-index 1
+    font-size 7pt
+    text-transform uppercase
+    font-weight bold
+    text-align center
+    padding-bottom 19px
+    cursor pointer
+        
+  thead,
+  tbody
+    
+    tr
+      border-bottom-color $brand-color
+    
+  tbody
+    
+    tr
+      height 65px
+      cursor pointer
+      transition( background-color .3s ease )
+      
+      &.i-action
+        color #cc0000
+        
+      &:hover
+        background-color #f3f2e8
+        
+      @media( max-width 1200px )
+        display block
+        height auto
+        padding-top 15px
+      
+    td
+      vertical-align middle
+      text-align center
+      font-size 12pt
+      line-height 1.1
+      
+    small
+      font-size 7pt
+      
+    a.btn:hover,
+    a.btn:focus
+      color #fff
+      text-decoration none
+      
+  .col.xl9
+    //max-height calc(100vh - 300px)
+    height 700px
+    overflow auto
+    
+.b-filter-item
+
+  &[ data-tab=highrise ],
+  &[ data-tab=lowrise ] 
+  
+    table
+    
+      th
+        width 11%
+          
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8)
+          width auto
+        
+        @media( max-width 1200px )
+          display inline-block
+          width 20%
+          
+          &:nth-child(6),
+          &:nth-child(7),
+          &:nth-child(8)
+            display none
+            
+      td
+        
+        @media( max-width 1200px )
+          display inline-block
+          width 20%
+            
+          &:nth-child(6)
+            padding-top 15px
+            
+          &:nth-child(7)
+            font-size 14pt
+            
+          &:nth-child(6),
+          &:nth-child(7),
+          &:nth-child(8)
+            display block
+            width 100%
+            margin-bottom 15px
+            text-align center
+            
+
+  &[ data-tab=townhouse ]
+  
+    table
+    
+      th
+        width 15%
+          
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6)
+          width auto
+        
+        @media( max-width 1200px )
+          display inline-block
+            
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3)
+            width 24%
+            
+          &:nth-child(4)
+            width 28%
+          
+          &:nth-child(5),
+          &:nth-child(6),
+          &:nth-child(7)
+            display none
+            
+      td
+        
+        @media( max-width 1200px )
+          display inline-block
+          width 28%
+            
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3)
+            width 24%
+            
+          &:nth-child(5)
+            padding-top 15px
+            
+          &:nth-child(6)
+            font-size 14pt
+            
+          &:nth-child(5),
+          &:nth-child(6),
+          &:nth-child(7)
+            display block
+            width 100%
+            margin-bottom 15px
+            text-align center
+
+  &[ data-tab=cottage ]
+  
+    table
+    
+      th
+        width 15%
+          
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6)
+          width auto
+        
+        @media( max-width 1200px )
+          display inline-block
+            
+          &:nth-child(1),
+          &:nth-child(2)
+            width 15%
+            
+          &:nth-child(3),
+          &:nth-child(4)
+            width 35%
+          
+          &:nth-child(5),
+          &:nth-child(6)
+            display none
+            
+      td
+        
+        @media( max-width 1200px )
+          display inline-block
+          width 35%
+            
+          &:nth-child(1),
+          &:nth-child(2)
+            width 15%
+            
+          &:nth-child(5)
+            padding-top 15px
+            font-size 14pt
+            
+          &:nth-child(5),
+          &:nth-child(6)
+            display block
+            width 100%
+            margin-bottom 15px
+            text-align center
+
+  &[ data-tab=duplex ]
+  
+    table
+    
+      th
+        width auto
+          
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3)
+          width 11%
+        
+        @media( max-width 1200px )
+          display inline-block
+            
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4)
+            width 25%
+          
+          &:nth-child(5),
+          &:nth-child(6),
+          &:nth-child(7),
+          &:nth-child(8)
+            display none
+            
+      td
+        
+        @media( max-width 1200px )
+          display inline-block
+          width 25%
+            
+          &:nth-child(5)
+            padding-top 15px
+            
+          &:nth-child(7)
+            font-size 14pt
+            
+          &:nth-child(5),
+          &:nth-child(6),
+          &:nth-child(7),
+          &:nth-child(8)
+            display block
+            width 100%
+            margin-bottom 15px
+            text-align center

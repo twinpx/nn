@@ -1,0 +1,30 @@
+﻿// start /components/filter/
+
+link( rel="stylesheet", href="/template/plugin/jquery-ui.css" )
+link( rel="stylesheet", href="/template/plugin/jquery-ui.theme.min.css" )
+script( src="/template/plugin/jquery-ui.js" )
+script( src="/template/plugin/jquery.ui.touch-punch.min.js" )
+
+link( rel="stylesheet", href="/components/filter/style.css" )
+script( src="/components/filter/script.js" )
+
+.b-filter
+    
+  .b-tabs
+  
+    .b-tabs__menu
+      .b-tabs__item.i-active( data-tab="highrise" ) Многоэтажные дома
+      .b-tabs__item( data-tab="lowrise" ) Малоэтажные дома
+      .b-tabs__item( data-tab="townhouse" ) Таунхаусы
+      .b-tabs__item( data-tab="cottage" ) Коттеджи
+      .b-tabs__item( data-tab="duplex" ) Дуплексы
+      
+    hr.i-size-L
+    
+    include ./table-highrise
+    include ./table-lowrise
+    include ./table-townhouse
+    include ./table-cottage
+    include ./table-duplex
+              
+// end /components/filter/

@@ -1,0 +1,20 @@
+.b-heading
+  position relative
+  margin 40px 0 20px
+  
+  &__h
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    transition( opacity .5s ease )
+    z-index 1
+
+.b-heading__ph
+  transition( opacity .5s ease )
+  
+  &__content
+    height 31px
+    background-color $placeholder-color
+    transform( translateY( -14px ))

@@ -1,0 +1,670 @@
+﻿( function($) {
+
+  'use strict';
+  
+  $( function() {
+    
+    $( '.b-filter-table' ).each( function() {
+      var element = $( this ).get(0);
+      new Tablesort( element );
+    });
+    
+    $( '.b-filter-item' ).each( function() {
+      var $filterItem = $( this );
+      $filterItem.data({ Filter: new Filter( $filterItem ) });
+    });
+  
+    function Filter( $elem ) {
+      var self = this;
+      
+      init();
+      
+      function init() {
+        initVars();
+        initFilter();
+        
+        //public methods
+        self.slideFilter = slideFilter;
+        self.setValue = setValue;
+      }
+      
+      function initVars() {
+        self.flatsArray = [];
+        self.flatsArrayFiltered = [];
+        self.$elem = $elem;
+        self.$filter = $( '.b-filter' );
+        self.$input = self.$elem.find( '.b-filter__input input' );
+        self.$tbody = self.$elem.find( '.b-filter-table tbody' );
+        self.$reset = self.$elem.find( '.b-filter-reset' );
+        self.$mobileBtn = self.$elem.find( '.b-filter-btn' );
+        
+        self.$house = self.$elem.find( ".b-filter-house" );
+        self.$section = self.$elem.find( ".b-filter-section" );
+        self.$floors = self.$elem.find( ".b-filter-floors" );
+        self.$rooms = self.$elem.find( ".b-filter-rooms" );
+        self.$square = self.$elem.find( ".b-filter-square" );
+        self.$land = self.$elem.find( ".b-filter-land" );
+        self.$price = self.$elem.find( ".b-filter-price" );
+        
+        self.$houseInputMin = self.$elem.find( ".b-filter-house-input-min" );
+        self.$houseInputMax = self.$elem.find( ".b-filter-house-input-max" );
+        self.$sectionInputMin = self.$elem.find( ".b-filter-section-input-min" );
+        self.$sectionInputMax = self.$elem.find( ".b-filter-section-input-max" );
+        self.$floorsInputMin = self.$elem.find( ".b-filter-floors-input-min" );
+        self.$floorsInputMax = self.$elem.find( ".b-filter-floors-input-max" );
+        self.$roomsInputMin = self.$elem.find( ".b-filter-rooms-input-min" );
+        self.$roomsInputMax = self.$elem.find( ".b-filter-rooms-input-max" );
+        self.$squareInputMin = self.$elem.find( ".b-filter-square-input-min" );
+        self.$squareInputMax = self.$elem.find( ".b-filter-square-input-max" );
+        self.$landInputMin = self.$elem.find( ".b-filter-land-input-min" );
+        self.$landInputMax = self.$elem.find( ".b-filter-land-input-max" );
+        self.$priceInputValue = self.$elem.find( ".b-filter-price-value" );
+      }
+      
+      function initFilter() {
+        getArray();
+        setReset();
+        setEvents();
+      }
+      
+      function setEvents() {
+        
+        self.$mobileBtn.click( function(e) {
+          e.preventDefault();
+          
+          if ( self.$mobileBtn.find( 'span:visible' ).is( '.i-show' )) {
+            self.$elem.find( '.b-filter-body' ).slideDown();
+            self.$mobileBtn.find( 'span' ).show();
+            self.$mobileBtn.find( 'span.i-show' ).hide();
+          } else {
+            self.$elem.find( '.b-filter-body' ).slideUp();
+            self.$mobileBtn.find( 'span' ).hide();
+            self.$mobileBtn.find( 'span.i-show' ).show();
+          }
+        });
+    
+        self.$input.keydown( function(e) {
+          if ( e.which !== 13 ) {
+            return;
+          }
+          
+          var $input = $( this );
+          var cls = $input.attr( 'class' );
+          var val = $input.val()*1;
+          var min, max;
+          var sliderCls = cls.substring( 0, cls.search( 'input' )-1 );
+          var slider = sliderCls.split( 'b-filter-' )[1];
+          var $spanMin = self.$elem.find( "." + sliderCls + " .ui-slider-handle:eq(0) span" );
+          var $spanMax = self.$elem.find( "." + sliderCls + " .ui-slider-handle:eq(1) span" );
+          
+          if ( typeof val !== 'number' ) {
+            return;
+          }
+          
+          if ( String(cls).search( 'min' ) !== -1 ) {
+            min = val;
+            max = $input.siblings( 'input' ).val() * 1;
+            
+            if ( min > $spanMax.text()) {
+              $input.val( $spanMin.text());
+              return;
+            }
+            if ( min < self[ '$' + slider ].slider( "option", "min" )) {
+              min = self[ '$' + slider ].slider( "option", "min" );
+              $input.val( min );
+            }
+          } else {
+            max = val;
+            min = $input.siblings( 'input' ).val() * 1;
+            
+            if ( max < $spanMin.text()) {
+              $input.val( $spanMax.text());
+              return;
+            }
+            if ( max > self[ '$' + slider ].slider( "option", "max" )) {
+              max = self[ '$' + slider ].slider( "option", "max" );
+              $input.val( max );
+            }
+          }
+          
+          //price
+          self.$elem.find( "." + sliderCls ).slider( "values", 0, min );
+          self.$elem.find( "." + sliderCls ).slider( "values", 1, max );
+          $spanMin.text( min );
+          $spanMax.text( max );
+          
+          slideFilter();
+          
+        });
+      }
+      
+      function setValue( obj ) {
+        //obj = { house: [1,2], section: [1,2], floors: [4,6], rooms: [1,2], square: [44,54], land: [4,6], price: [10000000,12000000] };
+        
+        for ( var key  in obj ) {
+          self[ "$" + key ].slider( "values", 0, obj[ key ][0]);
+          self[ "$" + key ].slider( "values", 1, obj[ key ][1]);
+          
+          if ( key === 'price' ) {
+            self.$elem.find( ".b-filter-" + key + "-value" ).text( obj[ key ][0] + ' — ' + obj[ key ][1] + ' руб.' );
+          } else {
+            self[ "$" + key ].find( ".ui-slider-handle:eq(0) span" ).text( obj[ key ][0]);
+            self[ "$" + key ].find( ".ui-slider-handle:eq(1) span" ).text( obj[ key ][1]);
+          }
+        }
+        
+        slideFilter();
+      }
+      
+      function setReset() {
+        self.$reset.click( function() {
+          var obj = {};
+          
+          if ( self.$house.length ) {
+            obj.house = [self.$house.slider( "option", "min" ),self.$house.slider( "option", "max" )];
+          }
+          
+          if ( self.$section.length ) {
+            obj.section = [self.$section.slider( "option", "min" ),self.$section.slider( "option", "max" )];
+          }
+          
+          if ( self.$floors.length ) {
+            obj.floors = [self.$floors.slider( "option", "min" ),self.$floors.slider( "option", "max" )];
+          }
+          
+          if ( self.$rooms.length ) {
+            obj.rooms = [self.$rooms.slider( "option", "min" ),self.$rooms.slider( "option", "max" )];
+          }
+          
+          if ( self.$square.length ) {
+            obj.square = [self.$square.slider( "option", "min" ),self.$square.slider( "option", "max" )];
+          }
+          
+          if ( self.$land.length ) {
+            obj.land = [self.$land.slider( "option", "min" ),self.$land.slider( "option", "max" )];
+          }
+          
+          if ( self.$price.length ) {
+            obj.price = [self.$price.slider( "option", "min" ),self.$price.slider( "option", "max" )];
+          }
+          setValue( obj );
+          
+          self.$input.each( function( $elem ) {
+            var $input = $( this );
+            var cls = $input.attr( 'class' );
+            var sliderCls = cls.substring( 0, cls.search( 'input' )-1 );
+            
+            if ( String(cls).search( 'min' ) !== -1 ) {
+              $input.val( self.$elem.find( "." + sliderCls + " .ui-slider-handle:eq(0) span" ).text());
+            } else {
+              $input.val( self.$elem.find( "." + sliderCls + " .ui-slider-handle:eq(1) span" ).text());
+            }
+          });
+        });        
+      }
+      
+      function setHouseSlider() {
+        
+        var minMaxCookie = getMinMaxFromCookie( 'house' );//???
+        var minMax = getMinMax( 'HouseCount' );
+        
+        if ( !minMaxCookie ) {
+          minMaxCookie = minMax;
+        }
+        
+        self.$house.slider({
+          range: true,
+          min: minMax[0],
+          max: minMax[1],
+          values: [ minMaxCookie[0], minMaxCookie[1] ],
+          create: function( event, ui ) {
+            self.$house.find( '.ui-slider-handle:eq(0)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[0] + '</span>' );
+            self.$houseInputMin.val( minMaxCookie[0]);
+            self.$house.find( '.ui-slider-handle:eq(1)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[1] + '</span>' );
+            self.$houseInputMax.val( minMaxCookie[1]);
+          },
+          slide: function( event, ui ) {
+            self.$house.find( '.ui-slider-handle:eq(0) span' ).text( ui.values[ 0 ]);
+            self.$house.find( '.ui-slider-handle:eq(1) span' ).text( ui.values[ 1 ]);
+            self.$houseInputMin.val( ui.values[ 0 ]);
+            self.$houseInputMax.val( ui.values[ 1 ]);
+          },
+          stop: slideFilter
+        });
+      }
+      
+      function setSectionSlider() {
+        
+        var minMaxCookie = getMinMaxFromCookie( 'section' );//???
+        var minMax = getMinMax( 'SectionCount' );
+        
+        if ( !minMaxCookie ) {
+          minMaxCookie = minMax;
+        }
+        
+        self.$section.slider({
+          range: true,
+          min: minMax[0],
+          max: minMax[1],
+          values: [ minMaxCookie[0], minMaxCookie[1] ],
+          create: function( event, ui ) {
+            self.$section.find( '.ui-slider-handle:eq(0)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[0] + '</span>' );
+            self.$sectionInputMin.val( minMaxCookie[0]);
+            self.$section.find( '.ui-slider-handle:eq(1)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[1] + '</span>' );
+            self.$sectionInputMax.val( minMaxCookie[1]);
+          },
+          slide: function( event, ui ) {
+            self.$section.find( '.ui-slider-handle:eq(0) span' ).text( ui.values[ 0 ]);
+            self.$section.find( '.ui-slider-handle:eq(1) span' ).text( ui.values[ 1 ]);
+            self.$sectionInputMin.val( ui.values[ 0 ]);
+            self.$sectionInputMax.val( ui.values[ 1 ]);
+          },
+          stop: slideFilter
+        });
+      }
+      
+      function setRoomsSlider() {
+        
+        var minMaxCookie = getMinMaxFromCookie( 'rooms' );//???
+        var minMax = getMinMax( 'FlatRoomsCount' );
+        
+        if ( !minMaxCookie ) {
+          minMaxCookie = minMax;
+        }
+        
+        self.$rooms.slider({
+          range: true,
+          min: minMax[0],
+          max: minMax[1],
+          values: [ minMaxCookie[0], minMaxCookie[1] ],
+          create: function( event, ui ) {
+            self.$rooms.find( '.ui-slider-handle:eq(0)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[0] + '</span>' );
+            self.$roomsInputMin.val( minMaxCookie[0]);
+            self.$rooms.find( '.ui-slider-handle:eq(1)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[1] + '</span>' );
+            self.$roomsInputMax.val( minMaxCookie[1]);
+          },
+          slide: function( event, ui ) {
+            self.$rooms.find( '.ui-slider-handle:eq(0) span' ).text( ui.values[ 0 ]);
+            self.$rooms.find( '.ui-slider-handle:eq(1) span' ).text( ui.values[ 1 ]);
+            self.$roomsInputMin.val( ui.values[ 0 ]);
+            self.$roomsInputMax.val( ui.values[ 1 ]);
+          },
+          stop: slideFilter
+        });
+      }
+      
+      function setFloorsSlider() {
+        
+        var minMaxCookie = getMinMaxFromCookie( 'floors' );
+        var minMax = getMinMax( 'FloorNumber' );
+        
+        if ( !minMaxCookie ) {
+          minMaxCookie = minMax;
+        }
+        
+        self.$floors.slider({
+          range: true,
+          min: minMax[0],
+          max: minMax[1],
+          values: [ minMaxCookie[0], minMaxCookie[1] ],
+          create: function( event, ui ) {
+            self.$floors.find( '.ui-slider-handle:eq(0)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[0] + '</span>' );
+            self.$floorsInputMin.val( minMaxCookie[0]);
+            self.$floors.find( '.ui-slider-handle:eq(1)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[1] + '</span>' );
+            self.$floorsInputMax.val( minMaxCookie[1]);
+          },
+          slide: function( event, ui ) {
+            self.$floors.find( '.ui-slider-handle:eq(0) span' ).text( ui.values[ 0 ]);
+            self.$floors.find( '.ui-slider-handle:eq(1) span' ).text( ui.values[ 1 ]);
+            self.$floorsInputMin.val( ui.values[ 0 ]);
+            self.$floorsInputMax.val( ui.values[ 1 ]);
+          },
+          stop: slideFilter
+        });
+      }
+      
+      function setSquareSlider() {
+        
+        var minMaxCookie = getMinMaxFromCookie( 'square' );
+        
+        var minMax = getMinMax( 'TotalArea' );
+        minMax = [ Math.floor( minMax[0] ), Math.ceil( minMax[1] )];
+        
+        if ( !minMaxCookie ) {
+          minMaxCookie = minMax;
+        }
+        
+        self.$square.slider({
+          range: true,
+          min: minMax[0],
+          max: minMax[1],
+          values: [ minMaxCookie[0], minMaxCookie[1] ],
+          create: function( event, ui ) {
+            self.$square.find( '.ui-slider-handle:eq(0)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[0] + '</span>' );
+            self.$squareInputMin.val( minMaxCookie[0]);
+            self.$square.find( '.ui-slider-handle:eq(1)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[1] + '</span>' );
+            self.$squareInputMax.val( minMaxCookie[1]);
+          },
+          slide: function( event, ui ) {
+            self.$square.find( '.ui-slider-handle:eq(0) span' ).text( ui.values[ 0 ]);
+            self.$square.find( '.ui-slider-handle:eq(1) span' ).text( ui.values[ 1 ]);
+            self.$squareInputMin.val( ui.values[ 0 ]);
+            self.$squareInputMax.val( ui.values[ 1 ]);
+          },
+          stop: slideFilter
+        });
+      }
+      
+      function setLandSlider() {
+        
+        var minMaxCookie = getMinMaxFromCookie( 'land' );
+        
+        var minMax = getMinMax( 'LandArea' );
+        minMax = [ Math.floor( minMax[0] ), Math.ceil( minMax[1] )];
+        
+        if ( !minMaxCookie ) {
+          minMaxCookie = minMax;
+        }
+        
+        self.$land.slider({
+          range: true,
+          min: minMax[0],
+          max: minMax[1],
+          values: [ minMaxCookie[0], minMaxCookie[1] ],
+          create: function( event, ui ) {
+            self.$land.find( '.ui-slider-handle:eq(0)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[0] + '</span>' );
+            self.$landInputMin.val( minMaxCookie[0]);
+            self.$land.find( '.ui-slider-handle:eq(1)' ).attr({ contenteditable: "true" }).append( '<span>' + minMaxCookie[1] + '</span>' );
+            self.$landInputMax.val( minMaxCookie[1]);
+          },
+          slide: function( event, ui ) {
+            self.$land.find( '.ui-slider-handle:eq(0) span' ).text( ui.values[ 0 ]);
+            self.$land.find( '.ui-slider-handle:eq(1) span' ).text( ui.values[ 1 ]);
+            self.$landInputMin.val( ui.values[ 0 ]);
+            self.$landInputMax.val( ui.values[ 1 ]);
+          },
+          stop: slideFilter
+        });
+      }
+      
+      function setPriceSlider() {
+        
+        var minMaxCookie = getMinMaxFromCookie( 'price' );
+        var minMax = getMinMax( 'Price' );
+        
+        if ( !minMaxCookie ) {
+          minMaxCookie = minMax;
+        }        
+        
+        self.$price.slider({
+          range: true,
+          min: minMax[0],
+          max: minMax[1],
+          step: 100,
+          values: [ minMaxCookie[0], minMaxCookie[1] ],
+          create: function( event, ui ) {
+            self.$priceInputValue.text( Number( minMaxCookie[0] ).toLocaleString('ru-RU') + ' — ' +  Number( minMaxCookie[1] ).toLocaleString('ru-RU') + ' руб.' );
+          },
+          slide: function( event, ui ) {
+            self.$priceInputValue.text( Number( ui.values[0] ).toLocaleString('ru-RU') + ' — ' + Number( ui.values[1] ).toLocaleString('ru-RU') + ' руб.' );
+          },
+          stop: slideFilter
+        });
+      }
+      
+      function getMinMaxFromCookie( sliderName ) {
+        if ( Cookies.get( 'filter-' + self.$elem.data( 'tab' ) )) {
+          return JSON.parse( Cookies.get( 'filter-' + self.$elem.data( 'tab' ) ))[ sliderName ];
+        }
+        return;
+      }
+      
+      function getMinMax( arrayProp ) {
+        var min = 1e15;
+        var max = 0;
+        
+        self.flatsArray.forEach( function( elem ) {
+          if ( 1*elem[ arrayProp ] && 1*elem[ arrayProp ] > max ) {
+            max = 1*elem[ arrayProp ];
+          }
+          if ( 1*elem[ arrayProp ] && 1*elem[ arrayProp ] < min ) {
+            min = 1*elem[ arrayProp ];
+          }
+        });
+        
+        if ( min === 1e15 && max === 0 ) {//when the prop is a string
+          min = 0;
+          max = 10;
+        }
+        
+        return [ min, max ];
+      }
+      
+      function getArray() {
+        $.ajax({
+          url: self.$tbody.data( 'json' ),
+          type: self.$tbody.data( 'method' ),
+          dataType: "json",
+          success: function( data ) {
+            self.flatsArray = data;
+            
+            setHouseSlider();
+            setSectionSlider();
+            setRoomsSlider();
+            setFloorsSlider();
+            setSquareSlider();
+            setLandSlider();
+            setPriceSlider();
+            
+            setTimeout( function() {slideFilter();}, 100);
+          },
+          error: function() {}
+        });
+      }
+      
+      function slideFilter() {
+        
+        var array = [];
+        
+        if ( self.$house.length ) {
+          array.push([ 'house', 'HouseCount' ]);
+        }
+        
+        if ( self.$section.length ) {
+          array.push([ 'section', 'SectionNumber' ]);
+        }
+        
+        if ( self.$floors.length ) {
+          array.push([ 'floors', 'FloorNumber' ]);
+        }
+        
+        if ( self.$rooms.length ) {
+          array.push([ 'rooms', 'FlatRoomsCount' ]);
+        }
+        
+        if ( self.$square.length ) {
+          array.push([ 'square', 'TotalArea' ]);
+        }
+        
+        if ( self.$land.length ) {
+          array.push([ 'land', 'LandArea' ]);
+        }
+        
+        if ( self.$price.length ) {
+          array.push([ 'price', 'Price' ]);
+        }
+        
+        self.flatsArrayFiltered = self.flatsArray.filter( function( element ) {
+          
+          var flag = 1;
+          
+          array.forEach( function( elem ) {
+            if ((element[ elem[1]] < self[ '$' + elem[0]].slider( "values", 0 ) || element[ elem[1]] > self[ '$' + elem[0]].slider( "values", 1 ))) {
+              flag *= 0;
+            }
+          });
+          
+          if ( flag ) {
+            return true;
+          }
+        });
+        
+        renderResult();
+        setCookie();
+      }
+      
+      function setCookie() {
+        
+        var cookieValue = {};
+        
+        if ( self.$house.length ) {
+          cookieValue.house = [ self.$house.slider( "values", 0 ), self.$house.slider( "values", 1 )];
+        }
+        
+        if ( self.$section.length ) {
+          cookieValue.section = [ self.$section.slider( "values", 0 ), self.$section.slider( "values", 1 )];
+        }
+        
+        if ( self.$floors.length ) {
+          cookieValue.floors = [ self.$floors.slider( "values", 0 ), self.$floors.slider( "values", 1 )];
+        }
+        
+        if ( self.$rooms.length ) {
+          cookieValue.rooms = [ self.$rooms.slider( "values", 0 ), self.$rooms.slider( "values", 1 )];
+        }
+        
+        if ( self.$square.length ) {
+          cookieValue.square = [ self.$square.slider( "values", 0 ), self.$square.slider( "values", 1 )];
+        }
+        
+        if ( self.$land.length ) {
+          cookieValue.land = [ self.$land.slider( "values", 0 ), self.$land.slider( "values", 1 )];
+        }
+        
+        if ( self.$price.length ) {
+          cookieValue.price = [ self.$price.slider( "values", 0 ), self.$price.slider( "values", 1 )];
+        }
+        
+        cookieValue.filter = "";
+        
+        Cookies.set( 'filter-' + self.$elem.data( 'tab' ), cookieValue, { expires: 365, path: window.location.pathname });
+      }
+      
+      function renderResult() {
+        var html = "";
+        
+        self.flatsArrayFiltered.forEach( function( element ) {
+          var cls = '';
+          if ( element.Action ) {
+            cls = "i-action";
+          }
+          
+          var tr = "<tr data-url=\"" + element.URL + "\" class=\"" + cls + "\"";
+          var house, section, corp, floor, flat, floorduplex, rooms, square, land, price;
+          var end = "<td><a href=\"" + self.$tbody.data( 'orderlink' ) + element.ExternalId + "\" class=\"btn\">Оставить заявку</a></td></tr>";
+          
+          if ( element.HouseCount ) {
+            tr += " data-housecount=\"" + element.HouseCount + "\"";
+            house = "<td>" + element.HouseCount + "</td>";
+          }
+          
+          if ( element.SectionNumber ) {
+            tr += " data-sectionnumber=\"" + element.SectionNumber + "\"";
+            section = "<td>" + element.SectionNumber + "</td>";
+          }
+          
+          if ( element.CorpCount ) {
+            tr += " data-corpnumber=\"" + element.CorpCount + "\"";
+            corp = "<td>" + element.CorpCount + "</td>";
+          }
+          
+          if ( element.FloorNumber ) {
+             tr += " data-floornumber=\"" + element.FloorNumber + "\"";
+             floor = "<td>" + element.FloorNumber + "</td>";
+             floorduplex = "";
+          }
+          
+          if ( element.FlatNum ) {
+             tr += " data-flatnum=\"" + element.FlatNum + "\"";
+             flat = "<td>" + element.FlatNum + "</td>";
+          }
+          
+          if ( element.FloorsDuplex ) {
+             tr += " data-floorsduplex=\"" + element.FloorsDuplex + "\"";
+             floorduplex = "<td>" + element.FloorsDuplex + "</td>";
+             floor = "";
+          }
+          
+          if ( element.FlatRoomsCount ) {
+             tr += " data-flatroomscount=\"" + element.FlatRoomsCount + "\"";
+             rooms = "<td>" + element.FlatRoomsCount + "</td>";
+          }
+          
+          if ( element.TotalArea ) {
+             tr += " data-totalarea=\"" + element.TotalArea + "\"";
+             square = "<td>" + element.TotalArea + " м<sup>2</sup></td>";
+          }
+          
+          if ( element.LandArea ) {
+             tr += " data-landarea=\"" + element.LandArea + "\"";
+             land = "<td>" + element.LandArea + " соток</td>";
+          }
+          
+          if ( element.Price && element.PriceFormat ) {
+             tr += " data-price=\"" + element.PriceFormat + "\"";
+             price = "<td data-sort=\"" + element.Price + "\">" + element.PriceFormat + " руб.</td>";
+          }
+          
+          tr += " data-layoutphoto=\"" + element.LayoutPhoto + "\" data-externalid=\"" + element.ExternalId + "\">";
+          
+          html += tr + house + corp + section + floor + flat + floorduplex + rooms + square + land + price + end;
+        });
+        
+        self.$tbody.html( html );
+      }
+      
+      self.$elem.delegate( '.btn', 'click', function(e) {
+        e.stopPropagation();
+      });
+      
+      self.$elem.delegate( 'tbody tr', 'click', function(e) {
+        e.preventDefault();
+        window.location = $( this ).data( 'url' );
+      });
+      
+    }
+    
+    //page load
+    setTimeout( function() {
+      var query = {};
+    
+      if ( window.location.search ) {
+        query = parseQuery( window.location.search );
+      }
+      
+      if ( query.type && $( '.b-tabs__item[ data-tab=' + query.type + ']' ).length ) {
+        $( '.b-tabs__item[ data-tab=' + query.type + ']' ).click();
+      }
+      if ( query.house && $( '.b-filter-item[ data-tab=' + query.type + '] .b-filter-house' ).length ) {
+        var filter = $( '.b-filter-item[ data-tab=' + query.type + ']' ).data( 'Filter' );
+        filter.setValue({ house: [ query.house, query.house ]});
+      }
+    }, 1000);
+    
+  
+    function parseQuery( queryString ) {
+		  var query = {};
+		  var pairs = ( queryString[0] === '?' ? queryString.substr(1) : queryString ).split('&');
+		  for ( var i = 0; i < pairs.length; i++ ) {
+			  var pair = pairs[i].split( '=' );
+			  query[ decodeURIComponent( pair[0]) ] = decodeURIComponent( pair[1] || '' );
+		  }
+		  return query;
+		}
+        
+    /*if ( window.BX ) {
+      BX.addCustomEvent( "onFrameDataReceived", function () {});
+    }*/
+  });
+
+}( jQuery ));

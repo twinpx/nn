@@ -1,0 +1,240 @@
+.i-ph-animated
+
+  .b-header__ph
+    position absolute
+    opacity 0
+    
+  .b-header&
+    
+    .container
+      position relative
+      
+    .b-header__container
+      opacity 1
+
+.b-header
+  width auto
+  overflow visible
+  
+  &__container
+    position fixed
+    top 0
+    left 0
+    width 100%
+    background-color #fff
+    z-index 100
+  
+  .container
+    display flex
+    justify-content space-between
+    align-items center
+    padding 20px 0
+    transition( opacity .5s ease )
+    
+    > [id*=bx_incl_area]
+      width calc(100% - 191px - 28%)
+      max-width calc(100% - 191px - 300px)
+      
+      @media (max-width: 1200px)
+        display none
+      
+      .b-header__menu
+        width 100%
+        max-width 100%
+  
+  &__logo
+    display block
+    width 28%
+    max-width 300px
+    
+    img
+      width 100%
+      height auto
+      display inline-block
+      vertical-align top
+      
+    @media( max-width 600px )
+      width 80%
+      
+    @media( min-width 600px ) and ( max-width 992px )
+      width 60%
+      
+  &__menu
+    text-align center
+    font-size 18px
+    font-family $font-roboto
+    font-weight 300
+    overflow hidden
+    padding 0 15px
+    height 27px
+    width calc( 100% - 191px - 28% )
+    max-width calc( 100% - 191px - 300px )
+    
+    @media( max-width 1200px )
+      display none
+    
+    a
+      display inline-block
+      vertical-align top
+      color $menu-color
+      padding 0 15px
+      font-weight 400
+      
+  &__icons
+    white-space nowrap
+    width 191px
+    
+    [id*=bx_incl_area]
+      display inline-block
+      vertical-align top
+    
+    @media( max-width 600px )
+      width 32px
+      
+  &__phone
+    color $phone-color
+    display inline-block
+    vertical-align middle
+    font-size 18px
+    margin-right 20px
+    
+  &__side-nav-icon
+    display inline-block
+    vertical-align middle
+    width 32px
+    height 32px
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    cursor pointer
+    transition( opacity .2s ease )
+    
+    &:hover
+      opacity .3
+      
+  .sidenav
+    display block
+    
+  @media print
+  
+    .b-header
+    
+      &__container
+        background-color gray
+    
+      .container
+        width auto
+
+        & > [id*=bx_incl_area]
+          display none
+    
+      &__logo
+        width 300px
+    
+      &__menu
+        display none
+      
+      &__side-nav-icon
+        display none
+        
+      &__phone
+        margin-right 0
+        
+      &__icons
+        width auto
+        text-align right
+    
+.sidenav
+  width 55vw
+  box-shadow none
+  padding 80px 80px 30px 10%
+  font-size 14pt
+  font-weight 300
+  background-color #245ba7
+  
+  @media( max-width 600px )
+    width 90vw
+    font-size 16px
+  
+  a
+    display block
+    line-height 35px
+    color #fff
+    
+    &.b-sidenav-phone
+      color #fff
+      font-weight 600
+  
+.sidenav-overlay
+  background-color rgba( 255,255,255,0.5 )
+  
+.b-sidenav-close
+  position absolute
+  top 40px
+  right 25%
+  width 24px
+  height 24px
+  background url( 'images/close-icon.svg' ) no-repeat center
+  background-size cover
+  cursor pointer
+  transition( opacity .2s ease )
+  
+  &:hover
+    opacity .3
+
+.b-sidenav-phone
+  color $phone-color
+  
+
+
+.b-footer
+  display block
+  background-color #245ba7
+  padding 20px 0
+  color #fff
+  
+  @media( max-width 767px )
+    padding-bottom 45px
+  
+  .container
+    padding-left 56px
+  
+  &__logo
+    display block
+    width 250px
+    max-width 100%
+    transform( translateX( -56px ))
+    
+    img
+      width 100%
+      height auto
+      display inline-block
+      vertical-align top
+      
+  .col
+    
+    a
+      display block
+      font-size 16px
+      font-family $font-roboto
+      font-weight 300
+      color #fff
+      padding-bottom 5px
+      
+  menu
+    margin 0
+    padding 0
+  
+    li
+      list-style-type none
+      
+  &__copyright
+    display flex
+    justify-content space-between
+    font-size 9pt
+    
+    @media( max-width 992px )
+      display block
+      
+  @media print
+    display none

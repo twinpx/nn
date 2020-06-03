@@ -1,0 +1,37 @@
+extends ../../layouts/main
+
+block title
+  title Цены | NN
+  
+block ph-styles
+  link( href="/template/placeholders/prices.css" rel="stylesheet" )
+
+block content
+  
+  .container
+
+    hr
+    h1 Все предложения
+  
+  section#prices.container
+
+    .b-prices__ph
+      .b-prices__ph-menu
+        div
+        div
+        div
+        div
+        div
+      .b-prices__ph-cols
+        .b-prices__ph-filter
+        .b-prices__ph-table
+  
+    include ../../components/filter/template
+  
+  hr.i-size-L
+  
+  section#buildings.container
+    include ../../modules/buildings/include
+  
+  hr.i-size-L
+  

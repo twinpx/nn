@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ипотека | NN</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Ново-Никольское">
+    <meta property="og:description" content="Масштабный жилой комплекс «Ново-Никольское» расположен в живописном районе Новой Москвы.">
+    <meta property="og:image" content="http://nn-markup.2px.ru/upload/gallery/1.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://nn-markup.2px.ru/pages/main/">
+    <script src="/template/jquery-3.4.1.min.js"></script>
+    <script src="/template/materialize.min.js"></script>
+    <script src="/template/script.js"></script>
+  </head>
+  <body>
+    <link href="/template/placeholders/hypothec.css" rel="stylesheet">
+    <header class="b-header">
+      <div class="b-header__ph">
+        <div class="b-header__ph-container container">
+          <div class="b-header__ph-logo">
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="b-header__container">
+        <div class="container"><a class="b-header__logo" href="/pages/main/"><img src="/template/images/logo-nn.svg" alt="Ново-Никольское"></a>
+          <div id="bx_incl_area_2">
+            <div class="b-header__menu"><a href="/pages/plan/">Генплан</a><a href="/pages/offers">Многоэтажные дома</a><a href="/pages/offers">Малоэтажные дома</a><a href="/pages/offers">Таунхаусы</a><a href="/pages/offers">Коттеджи</a><a href="/pages/offers">Дуплексы</a><a href="#panorama">Панорама</a><a href="#gallery">Галерея</a><a href="#docs">Документы</a><a href="#sale">Акции</a></div>
+          </div>
+          <div class="b-header__icons">
+            <div id="bx_incl_area_3"><a class="b-header__phone hide-on-small-only" href="tel:+7 (495) 162-61-40">(495) 162-61-40</a></div>
+            <div class="b-header__side-nav-icon sidenav-trigger" style="background-image: url( /template/images/menu.svg);" data-target="sideNav"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sidenav" id="sideNav">
+        <div class="b-sidenav-close"></div><a href="#plan">Генплан</a><a href="#panorama">Панорама</a><a href="#gallery">Галерея</a><a href="#docs">Документы</a><a href="#sale">Акции</a>
+        <hr><a class="b-sidenav-phone" href="tel:+7 (495) 162-61-40">+7 (495) 162-61-40</a>
+      </div>
+    </header>
+    <div class="container">
+      <hr>
+      <h1>Ипотека</h1>
+    </div>
+    <section class="container" id="hypothec">
+      <div class="b-hypothec__ph"></div>
+      <!-- start /components/hypothec/-->
+      <link rel="stylesheet" href="/template/plugin/jquery-ui.css">
+      <link rel="stylesheet" href="/template/plugin/jquery-ui.theme.min.css">
+      <script src="/template/plugin/jquery-ui.js"></script>
+      <script src="/template/plugin/jquery.ui.touch-punch.min.js"></script>
+      <link rel="stylesheet" href="/components/hypothec/style.css">
+      <script src="/components/hypothec/script.js"></script>
+      <div id="hypothecCalculator">
+        <div class="b-calculator">
+          <div class="b-calculator-form">
+            <h3><b>Ипотечный калькулятор</b></h3>
+            <div class="b-form-field">
+              <label>Стоимость</label>
+              <input id="priceInput" type="text" value="11100000" autocomplete="off">
+              <div id="priceSlider" data-min="800000" data-max="30000000"></div>
+            </div>
+            <div class="b-form-field">
+              <label>Ипотечная ставка, %</label>
+              <input id="percentInput" type="text" value="6" autocomplete="off">
+              <div id="percentSlider" data-min="1" data-max="20"></div>
+            </div>
+            <div class="b-form-field">
+              <label>Срок кредита, лет</label>
+              <input id="periodInput" type="text" value="12" autocomplete="off">
+              <div id="periodSlider" data-min="1" data-max="50"></div>
+            </div>
+            <div class="b-form-field">
+              <label>Первоначальный взнос</label>
+              <input id="firstInput" type="text" value="6000000" autocomplete="off">
+              <div id="firstSlider" data-min="800000" data-max="20000000"></div>
+            </div>
+          </div>
+          <div class="b-calculator-result">
+            <form action="/anketa/" method="GET">
+              <div class="b-calculator-result__item">
+                <input id="priceInputHidden" type="hidden" name="price" value="11100000">
+                <input id="percentInputHidden" type="hidden" name="percent" value="6">
+                <input id="periodInputHidden" type="hidden" name="period" value="12">
+                <input id="firstInputHidden" type="hidden" name="first" value="6000000">
+                <input type="text" name="email" value="" style="display:none"><b>Минимальный доход</b><span><span id="minIncome"></span> руб.</span>
+                <input id="minIncomeInput" type="hidden" name="min-income" value="">
+              </div>
+              <div class="b-calculator-result__item"><b>Ежемесячный взнос</b><span>от <span id="monthPay"></span> руб.</span>
+                <input id="monthPayInput" type="hidden" name="month-pay" value="">
+              </div>
+              <button class="b-button" onclick="yaCounter4831804.reachGoal('zayavkaodobrenieipoteki'); ga('send', 'event', 'zayavkaodobrenie', 'ipoteki');" type="submit">Отправить заявку</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- end /components/hypothec/-->
+    </section>
+    <hr class="i-size-L">
+    <section class="container" id="banks">
+      <div class="b-heading">
+        <div class="b-heading__ph">
+          <div class="b-heading__ph__content"></div>
+        </div>
+        <div class="b-heading__h i-left"><span>Банковские программы</span></div>
+      </div>
+      <!-- start /components/banks/-->
+      <link rel="stylesheet" href="/components/banks/style.css">
+      <script src="/components/banks/script.js"></script>
+      <div class="b-tabs">
+        <div class="b-tabs__menu">
+          <div class="b-tabs__item i-active" data-tab="banks1">Коттеджи и дуплексы</div>
+          <div class="b-tabs__item" data-tab="banks2">Квартиры и таунхаусы</div>
+        </div>
+        <hr>
+        <div class="b-tabs__tab i-active" data-tab="banks1">
+          <table class="b-banks-table">
+            <thead>
+              <tr>
+                <th>Название банка 1</th>
+                <th>Годовые<br>проценты</th>
+                <th>Первоначальный<br>взнос</th>
+                <th>Максимальная<br>сумма кредита</th>
+                <th>Срок<br>кредитования</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="/upload/banks/1.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+              <tr>
+                <td><img src="/upload/banks/2.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+              <tr>
+                <td><img src="/upload/banks/3.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+              <tr>
+                <td><img src="/upload/banks/4.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="b-tabs__tab" data-tab="banks2">
+          <table class="b-banks-table">
+            <thead>
+              <tr>
+                <th>Название банка 2</th>
+                <th>Годовые<br>проценты</th>
+                <th>Первоначальный<br>взнос</th>
+                <th>Максимальная<br>сумма кредита</th>
+                <th>Срок<br>кредитования</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="/upload/banks/1.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+              <tr>
+                <td><img src="/upload/banks/2.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+              <tr>
+                <td><img src="/upload/banks/3.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+              <tr>
+                <td><img src="/upload/banks/4.jpg" alt=""></td>
+                <td>от 6,0 %</td>
+                <td>от 15 %</td>
+                <td>60 000 000</td>
+                <td>до 30 лет</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- end /components/banks/-->
+    </section>
+    <hr class="i-size-L">
+    <footer class="b-footer">
+      <div class="container">
+        <div class="b-footer__logo"><img src="/template/images/logo-nn.svg" alt="Ново-Никольское"></div>
+        <hr class="i-size-M">
+        <div class="row">
+          <div class="col l4 m12 s12">
+            <menu>
+              <li><a href="">Инфраструктура</a></li>
+              <li><a href="">Инфраструктура</a></li>
+              <li><a href="">Инфраструктура</a></li>
+              <li><a href="">Инфраструктура</a></li>
+            </menu>
+          </div>
+          <div class="col l4 m12 s12">
+            <menu>
+              <li><a href="">Документы</a></li>
+              <li><a href="">Документы</a></li>
+              <li><a href="">Документы</a></li>
+            </menu>
+          </div>
+          <div class="col l4 m12 s12">
+            <menu>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+            </menu>
+          </div>
+        </div>
+        <div class="b-footer__copyright">
+          <p>&copy; Новоникольское 2020 год.</p>
+          <p>Официальный сайт жилого комплекса Ново-Никольское в Новой Москве.</p>
+        </div>
+      </div>
+    </footer>
+    <link rel="stylesheet" href="/template/materialize.min.css">
+    <link rel="stylesheet" href="/template/template_styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900&amp;display=swap">
+  </body>
+</html>

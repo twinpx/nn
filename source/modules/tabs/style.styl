@@ -1,0 +1,46 @@
+@import '../../styl/component-include.styl'
+
+.b-tabs
+
+  &__item
+    display inline-block
+    line-height 50px
+    padding 0 20px
+    white-space nowrap
+    margin-right 10px
+    border-radius 5px
+    color $brand-color-2
+    cursor pointer
+    transition( all .5s ease )
+    font-size 14px
+    
+    &.i-active
+      color $text-color
+      background #f7f7f7
+      cursor default
+      
+    @media( max-width 992px )
+      padding 0 7px
+      margin-right 3px
+      line-height 40px
+      font-size 12px
+      
+    @media( max-width 600px )
+      padding 0 20px
+      margin-bottom 3px
+      
+      
+  &__menu
+  
+    @media( max-width 600px )
+      display flex
+      justify-content space-between
+      flex-wrap wrap
+      
+  &__tab
+    display none
+    transition( opacity .5s ease .5s )
+    
+    &.i-active
+      opacity 1
+      display block

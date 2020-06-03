@@ -1,0 +1,28 @@
+#visual
+  position relative
+  
+.b-visual
+  position absolute
+  top 0
+  left 0
+  width 100%
+  transition( opacity .5s ease )
+  opacity 0
+  z-index 0
+  
+  &__ph
+    transition( opacity .5s ease )
+    padding-top calc( 740 / 1280 * 100% )
+    background-color $placeholder-color
+
+  img
+    width 100%
+    height auto
+    vertical-align top
+    
+  &__hover,
+  &__hint,
+  &__popup
+    position absolute
+    top 0
+    left 0

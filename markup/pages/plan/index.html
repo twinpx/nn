@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Генплан | NN</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Ново-Никольское">
+    <meta property="og:description" content="Масштабный жилой комплекс «Ново-Никольское» расположен в живописном районе Новой Москвы.">
+    <meta property="og:image" content="http://nn-markup.2px.ru/upload/gallery/1.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://nn-markup.2px.ru/pages/main/">
+    <script src="/template/jquery-3.4.1.min.js"></script>
+    <script src="/template/materialize.min.js"></script>
+    <script src="/template/script.js"></script>
+  </head>
+  <body>
+    <link href="/template/placeholders/plan.css" rel="stylesheet">
+    <header class="b-header">
+      <div class="b-header__ph">
+        <div class="b-header__ph-container container">
+          <div class="b-header__ph-logo">
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="b-header__container">
+        <div class="container"><a class="b-header__logo" href="/pages/main/"><img src="/template/images/logo-nn.svg" alt="Ново-Никольское"></a>
+          <div id="bx_incl_area_2">
+            <div class="b-header__menu"><a href="/pages/plan/">Генплан</a><a href="/pages/offers">Многоэтажные дома</a><a href="/pages/offers">Малоэтажные дома</a><a href="/pages/offers">Таунхаусы</a><a href="/pages/offers">Коттеджи</a><a href="/pages/offers">Дуплексы</a><a href="#panorama">Панорама</a><a href="#gallery">Галерея</a><a href="#docs">Документы</a><a href="#sale">Акции</a></div>
+          </div>
+          <div class="b-header__icons">
+            <div id="bx_incl_area_3"><a class="b-header__phone hide-on-small-only" href="tel:+7 (495) 162-61-40">(495) 162-61-40</a></div>
+            <div class="b-header__side-nav-icon sidenav-trigger" style="background-image: url( /template/images/menu.svg);" data-target="sideNav"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sidenav" id="sideNav">
+        <div class="b-sidenav-close"></div><a href="#plan">Генплан</a><a href="#panorama">Панорама</a><a href="#gallery">Галерея</a><a href="#docs">Документы</a><a href="#sale">Акции</a>
+        <hr><a class="b-sidenav-phone" href="tel:+7 (495) 162-61-40">+7 (495) 162-61-40</a>
+      </div>
+    </header>
+    <div class="container">
+      <hr>
+      <h1>Генплан</h1>
+    </div>
+    <section class="container" id="plan">
+      <div class="b-plan__ph">
+        <div class="b-plan__ph__text">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="b-plan__ph__map"></div>
+      </div>
+      <!-- start /components/plan/-->
+      <script src="https://api-maps.yandex.ru/2.1/?apikey=7173c9b7-5a59-4256-9095-082ce6f69f2d&amp;lang=ru_RU"></script>
+      <link rel="stylesheet" href="/components/plan/style.css">
+      <script src="/components/plan/script.js"></script>
+      <script src="/components/plan/placemarks.js"></script>
+      <script>
+        window.planYmapCenter = [59.938,30.3];
+        window.planYmapZoom = 16;
+      </script>
+      <style>
+        .b-placemark-icon.i-highrise,.i-highrise .b-balloon__button a,.b-plan__legend-item.i-highrise i{background-color:#cabb47;}.b-balloon.i-highrise{border-bottom:4px solid #cabb47;}
+        .b-placemark-icon.i-lowrise,.i-lowrise .b-balloon__button a,.b-plan__legend-item.i-lowrise i{background-color:#2577dc;}.b-balloon.i-lowrise{border-bottom:4px solid #2577dc;}
+        .b-placemark-icon.i-townhouse,.i-townhouse .b-balloon__button a,.b-plan__legend-item.i-townhouse i{background-color:#868686;}.b-balloon.i-townhouse{border-bottom:4px solid #868686;}
+        .b-placemark-icon.i-cottage,.i-cottage .b-balloon__button a,.b-plan__legend-item.i-cottage i{background-color:#000;}.b-balloon.i-cottage{border-bottom:4px solid #000;}
+        .b-placemark-icon.i-duplex,.i-duplex .b-balloon__button a,.b-plan__legend-item.i-duplex i{background-color:#245ba7;}.b-balloon.i-duplex{border-bottom:4px solid #245ba7;}
+      </style>
+      <div class="b-plan">
+        <p>Подобрать интересующую Вас недвижимость в ЖК "Ново-Никольское" можно при помощи нашего интерактивного генплана. Присто кликните на интересующих Вас дом или увеличьте карту для того, чтобы увидеть больше предложений.</p>
+        <hr>
+        <div class="b-plan__legend">
+          <div class="b-plan__legend-item i-highrise"><i></i><span> многоэтажный дом</span></div>
+          <div class="b-plan__legend-item i-lowrise"><i></i><span> малоэтажный дом</span></div>
+          <div class="b-plan__legend-item i-townhouse"><i></i><span> таунхаус</span></div>
+          <div class="b-plan__legend-item i-duplex"><i></i><span> дуплекс</span></div>
+          <div class="b-plan__legend-item i-cottage"><i></i><span> коттедж</span></div>
+        </div>
+        <hr class="i-size-L">
+        <div id="planYmap"></div>
+      </div>
+      <!-- end /components/plan/-->
+    </section>
+    <hr class="i-size-L">
+    <footer class="b-footer">
+      <div class="container">
+        <div class="b-footer__logo"><img src="/template/images/logo-nn.svg" alt="Ново-Никольское"></div>
+        <hr class="i-size-M">
+        <div class="row">
+          <div class="col l4 m12 s12">
+            <menu>
+              <li><a href="">Инфраструктура</a></li>
+              <li><a href="">Инфраструктура</a></li>
+              <li><a href="">Инфраструктура</a></li>
+              <li><a href="">Инфраструктура</a></li>
+            </menu>
+          </div>
+          <div class="col l4 m12 s12">
+            <menu>
+              <li><a href="">Документы</a></li>
+              <li><a href="">Документы</a></li>
+              <li><a href="">Документы</a></li>
+            </menu>
+          </div>
+          <div class="col l4 m12 s12">
+            <menu>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+              <li><a href="">Многоэтажные дома</a></li>
+            </menu>
+          </div>
+        </div>
+        <div class="b-footer__copyright">
+          <p>&copy; Новоникольское 2020 год.</p>
+          <p>Официальный сайт жилого комплекса Ново-Никольское в Новой Москве.</p>
+        </div>
+      </div>
+    </footer>
+    <link rel="stylesheet" href="/template/materialize.min.css">
+    <link rel="stylesheet" href="/template/template_styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900&amp;display=swap">
+  </body>
+</html>

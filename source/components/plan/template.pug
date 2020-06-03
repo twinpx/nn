@@ -1,0 +1,51 @@
+// start /components/plan/
+
+script( src="https://api-maps.yandex.ru/2.1/?apikey=7173c9b7-5a59-4256-9095-082ce6f69f2d&lang=ru_RU" )
+  
+link( rel="stylesheet", href="/components/plan/style.css" )
+script( src="/components/plan/script.js" )
+script( src="/components/plan/placemarks.js" )
+script
+  | window.planYmapCenter = [59.938,30.3];
+  | window.planYmapZoom = 16;
+  
+style
+  | .b-placemark-icon.i-highrise,.i-highrise .b-balloon__button a,.b-plan__legend-item.i-highrise i{background-color:#cabb47;}.b-balloon.i-highrise{border-bottom:4px solid #cabb47;}
+  | .b-placemark-icon.i-lowrise,.i-lowrise .b-balloon__button a,.b-plan__legend-item.i-lowrise i{background-color:#2577dc;}.b-balloon.i-lowrise{border-bottom:4px solid #2577dc;}
+  | .b-placemark-icon.i-townhouse,.i-townhouse .b-balloon__button a,.b-plan__legend-item.i-townhouse i{background-color:#868686;}.b-balloon.i-townhouse{border-bottom:4px solid #868686;}
+  | .b-placemark-icon.i-cottage,.i-cottage .b-balloon__button a,.b-plan__legend-item.i-cottage i{background-color:#000;}.b-balloon.i-cottage{border-bottom:4px solid #000;}
+  | .b-placemark-icon.i-duplex,.i-duplex .b-balloon__button a,.b-plan__legend-item.i-duplex i{background-color:#245ba7;}.b-balloon.i-duplex{border-bottom:4px solid #245ba7;}
+
+.b-plan
+
+  p Подобрать интересующую Вас недвижимость в ЖК "Ново-Никольское" можно при помощи нашего интерактивного генплана. Присто кликните на интересующих Вас дом или увеличьте карту для того, чтобы увидеть больше предложений.
+      
+  hr
+  
+  .b-plan__legend
+    
+    .b-plan__legend-item.i-highrise
+      i
+      span  многоэтажный дом
+    
+    .b-plan__legend-item.i-lowrise
+      i
+      span  малоэтажный дом
+    
+    .b-plan__legend-item.i-townhouse
+      i
+      span  таунхаус
+    
+    .b-plan__legend-item.i-duplex
+      i
+      span  дуплекс
+    
+    .b-plan__legend-item.i-cottage
+      i
+      span  коттедж
+      
+  hr.i-size-L
+
+  #planYmap
+
+// end /components/plan/

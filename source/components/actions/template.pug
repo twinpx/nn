@@ -1,0 +1,51 @@
+// start /components/actions/
+
+link( rel="stylesheet", href="/components/actions/style.css" )
+script( src="/components/actions/script.js" )
+
+.b-actions.b-load
+
+  .b-load__item
+
+    .row
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+    hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+
+    .row
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+    hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+
+    .b-load__button-block
+    
+      hr.i-size-L.hide-on-small-only
+            
+      .text-center
+        a.b-button.b-load__button( href="" data-ajax-url="/components/actions/ajax-response.html?page=1" data-ajax-method="GET" ) Загрузить больше  
+
+// end /components/actions/

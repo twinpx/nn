@@ -1,0 +1,29 @@
+extends ../../../layouts/main
+
+block title
+  title Новость детально | NN
+  
+block ph-styles
+  link( href="/template/placeholders/news-detail.css" rel="stylesheet" )
+
+block content
+
+  hr
+  
+  section#newsDetail.container
+  
+    .b-news-detail__ph
+      .b-news-detail__ph__label
+      .b-news-detail__ph__h1
+      .b-news-detail__ph__img
+      .b-news-detail__ph__text
+        div
+        div
+        div
+        div
+        div
+  
+    include ../../../components/news.detail/template
+  
+  hr.i-size-L
+  

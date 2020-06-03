@@ -1,0 +1,52 @@
+// start /components/news/
+
+link( rel="stylesheet", href="/components/news/style.css" )
+script( src="/components/news/script.js" )
+
+.b-news.b-load
+
+  .b-load__item
+
+    .row
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+    hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+
+    .row
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+      hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+      
+      .col.s12.m4
+        include ./item
+        
+    hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+
+    .b-load__button-block
+        
+      hr.i-size-L.hide-on-small-only
+            
+      .text-center
+        a.b-button.b-load__button( href="" data-ajax-url="/components/news/ajax-response.html?page=1" data-ajax-method="GET" ) Загрузить больше
+      
+
+// end /components/news/

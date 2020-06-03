@@ -1,0 +1,21 @@
+#gallery 
+  position relative
+  
+.b-gallery__ph
+
+  &-container
+    background-color $placeholder-color
+    padding-top calc( 100% / 2.6 )
+    transition( opacity .5s ease )
+    border-bottom 4px solid $placeholder-color
+    
+    /*@media( max-width 600px )
+      padding-top 0
+      height 500px*/
+      
+.b-top-gallery
+  position absolute
+  width 100%
+  visibility hidden
+  transition( opacity .5s ease )
+  opacity 0

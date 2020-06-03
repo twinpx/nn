@@ -1,0 +1,92 @@
+.b-tabs__tab.b-filter-item( data-tab="lowrise" )
+  .row
+    .col.xl3.l4.m5.s12
+    
+      .b-filter-btn
+        span.i-show Использовать фильтр
+        span Свернуть фильтр
+        i( style="background-image: url( '/upload/icons/filter.svg' );" )
+
+      .b-filter-body
+      
+        .b-filter__input
+          span от
+          | 
+          input.b-filter-house-input-min( type="text" value="" )
+          | 
+          span до
+          | 
+          input.b-filter-house-input-max( type="text" value="" )
+          
+        label № Дома
+        .b-filter__wrapper
+          .b-filter-house
+        p
+      
+        .b-filter__input
+          span от
+          | 
+          input.b-filter-floors-input-min( type="text" value="" )
+          | 
+          span до
+          | 
+          input.b-filter-floors-input-max( type="text" value="" )
+          
+        label Этаж
+        .b-filter__wrapper
+          .b-filter-floors
+        p
+        
+        .b-filter__input
+          span от
+          | 
+          input.b-filter-rooms-input-min( type="text" value="" )
+          | 
+          span до
+          | 
+          input.b-filter-rooms-input-max( type="text" value="" )
+          
+        label Комнат
+        .b-filter__wrapper
+          .b-filter-rooms
+        p
+        
+        .b-filter__input
+          span от
+          | 
+          input.b-filter-square-input-min( type="text" value="" )
+          | 
+          span до
+          | 
+          input.b-filter-square-input-max( type="text" value="" )
+          
+        label Площадь(м²)
+        .b-filter__wrapper
+          .b-filter-square
+        p
+        
+        label Стоимость
+        .b-filter-price-value
+        .b-filter__wrapper
+          .b-filter-price
+        p
+        .b-filter-reset Сбросить параметры
+        
+    hr.i-size-L.show-on-small.hide-on-med-and-up.clearfix
+        
+    .col.xl9.l8.m7.s12
+
+      table.b-filter-table
+        
+        thead
+          tr
+            th № Дома
+            th Корпус
+            th Этаж
+            th Номер квартиры
+            th Комнат
+            th Площадь
+            th Цена
+            th
+            
+        tbody( data-orderlink="/form/?id=" data-json="/components/filter/filter-data-lowrise.json" data-method="GET" )

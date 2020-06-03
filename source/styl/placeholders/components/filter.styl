@@ -1,0 +1,70 @@
+#prices
+  position relative
+  
+.b-filter
+  position absolute
+  top 0
+  left 0
+  width 100%
+  transition( opacity .5s ease )
+  opacity 0
+  z-index 0
+  
+.b-prices__ph
+  transition( opacity .5s ease )
+
+  &-menu
+    padding-bottom 60px
+    
+    div
+      display inline-block
+      height 50px
+      background-color $placeholder-color
+      width 89px
+      margin-right 10px
+      
+      @media( max-width 992px )
+        height 40px
+        margin-right 8px
+  
+      @media( max-width 600px )
+        margin-bottom 3px
+
+  &-cols
+    display flex
+    justify-content space-between
+    
+    @media( max-width 600px )
+      display block
+    
+  &-filter
+    width calc( (100% + 30px)/4 - 30px )
+    background-color $placeholder-color
+    height 600px
+    
+    @media( max-width 1200px )
+      width calc( (100% + 30px)/3 - 30px )
+    
+    @media( max-width 992px )
+      width calc( (100% + 30px)/12*5 - 30px )
+    
+    @media( max-width 600px )
+      width auto
+      height 49px
+      margin-bottom 40px
+  
+  &-table
+    width calc( (100% + 30px)/4*3 - 30px )
+    background-color $placeholder-color
+    height 600px
+    
+    @media( max-width 1200px )
+      display block
+      width calc( (100% + 30px)/3*2 - 30px )
+    
+    @media( max-width 992px )
+      display block
+      width calc( (100% + 30px)/12*7 - 30px )
+    
+    @media( max-width 600px )
+      width auto

@@ -1,0 +1,75 @@
+extends ../../layouts/main
+
+block title
+  title Детальная страница | NN
+  
+block ph-styles
+  link( href="/template/placeholders/detail.css" rel="stylesheet" )
+
+block content
+
+  .container
+
+    hr
+    
+    .b-heading-icon
+      h1 Квартира 89,3 м<sup>2</sup> в жилом квартале Ново-Никольское
+      include ../../modules/print-icon/include
+    
+    hr.i-size-L
+    
+  section#detail.container
+    
+    include ../../components/detail/template
+    
+  hr.i-size-XL
+  
+  section#advantages.container
+  
+    include ../../modules/heading/advantages
+    
+    .row
+      .col.m3.s6
+        img( src="/upload/advantages/1.svg" alt="" )
+        p  4 секционный<br>дом клубного формата
+        
+      .col.m3.s6
+        img( src="/upload/advantages/2.svg" alt="" )
+        p Подземный паркинг<br>на 249 машино-мест
+        
+      hr.show-on-small.hide-on-med-and-up.clearfix
+        
+      .col.m3.s6
+        img( src="/upload/advantages/3.svg" alt="" )
+        p Детский досуговый центр<br>на первом этаже
+        
+      .col.m3.s6
+        img( src="/upload/advantages/4.svg" alt="" )
+        p Благоустроенная придомовая<br>территория
+    
+    .row
+      .col.m3.s6
+        img( src="/upload/advantages/5.svg" alt="" )
+        p Cпортивная<br>и детская площадки,<br>зона отдыха
+        
+      .col.m3.s6
+        img( src="/upload/advantages/6.svg" alt="" )
+        p Высокая<br>транспортная<br>доступность
+        
+      hr.show-on-small.hide-on-med-and-up.clearfix
+        
+      .col.m3.s6
+        img( src="/upload/advantages/7.svg" alt="" )
+        p Развитая<br>инфраструктура<br>района
+        
+      .col.m3.s6
+        img( src="/upload/advantages/8.svg" alt="" )
+        p Доступные<br>финансовые<br>программы
+  
+  hr.i-size-L
+  
+  section#buildings.container
+      
+    include ../../modules/buildings/include
+  
+  hr.i-size-L

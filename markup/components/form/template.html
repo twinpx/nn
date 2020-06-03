@@ -1,0 +1,45 @@
+
+<!-- start /components/form/-->
+<link rel="stylesheet" href="/components/form/style.css"/>
+<script src="/components/form/script.js"></script>
+<div class="b-form">  
+  <form action="/form/?id=156bf0a1-72db-e811-a2c4-0050568b3458&amp;formid=5" method="post">
+    <input name="form_sended" type="hidden" value="y"/>
+    <input id="url" name="url" type="text" style="display:none;"/>
+    <input id="email" name="email" value="" type="text" style="display:none;"/>
+    <textarea class="hidden" id="DATA" name="DATA" style="display:none;">Код: 156bf0a1-72db-e811-a2c4-0050568b3458
+Секция: 1
+Количество комнат: 1
+Этаж: 4
+Площадь: 39.08
+Цена: 7 530 833</textarea>
+    <div class="input-field">
+      <input class="validate" id="NAME" name="NAME" type="text" required=""/>
+      <label for="NAME"> Имя</label>
+    </div>
+    <div class="input-field">
+      <input class="validate" id="TEL" name="TEL" type="tel" required="" maxlength="18"/>
+      <label for="TEL"> Номер телефона</label>
+    </div>
+    <div class="input-field">
+      <input class="validate" id="MAIL" name="MAIL" type="text"/>
+      <label for="MAIL"> Email</label>
+    </div>
+    <div class="input-field">
+      <textarea class="materialize-textarea" id="TEXT" name="TEXT"></textarea>
+      <label for="TEXT">Сообщение</label>
+    </div>
+    <hr/>
+    <div>
+      <label>
+        <input type="checkbox" required="" checked="checked" name="agreement"/><span>Я согласен на обработку персональных данных. <a href="/legacy/">Соглашение на обработку персональных данных</a></span>
+      </label>
+    </div>
+    <hr class="i-size-L"/>
+    <div class="text-center">
+      <button class="b-button" type="submit">Отправить заявку</button>
+    </div>
+    <hr class="i-size-XL"/>
+  </form>
+</div>
+<!-- end /components/form/-->

@@ -1,0 +1,52 @@
+
+<!-- start /components/hypothec/-->
+<link rel="stylesheet" href="/template/plugin/jquery-ui.css"/>
+<link rel="stylesheet" href="/template/plugin/jquery-ui.theme.min.css"/>
+<script src="/template/plugin/jquery-ui.js"></script>
+<script src="/template/plugin/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" href="/components/hypothec/style.css"/>
+<script src="/components/hypothec/script.js"></script>
+<div id="hypothecCalculator">
+  <div class="b-calculator">
+    <div class="b-calculator-form">
+      <h3><b>Ипотечный калькулятор</b></h3>
+      <div class="b-form-field">
+        <label>Стоимость</label>
+        <input id="priceInput" type="text" value="11100000" autocomplete="off"/>
+        <div id="priceSlider" data-min="800000" data-max="30000000"></div>
+      </div>
+      <div class="b-form-field">
+        <label>Ипотечная ставка, %</label>
+        <input id="percentInput" type="text" value="6" autocomplete="off"/>
+        <div id="percentSlider" data-min="1" data-max="20"></div>
+      </div>
+      <div class="b-form-field">
+        <label>Срок кредита, лет</label>
+        <input id="periodInput" type="text" value="12" autocomplete="off"/>
+        <div id="periodSlider" data-min="1" data-max="50"></div>
+      </div>
+      <div class="b-form-field">
+        <label>Первоначальный взнос</label>
+        <input id="firstInput" type="text" value="6000000" autocomplete="off"/>
+        <div id="firstSlider" data-min="800000" data-max="20000000"></div>
+      </div>
+    </div>
+    <div class="b-calculator-result">
+      <form action="/anketa/" method="GET">
+        <div class="b-calculator-result__item">
+          <input id="priceInputHidden" type="hidden" name="price" value="11100000"/>
+          <input id="percentInputHidden" type="hidden" name="percent" value="6"/>
+          <input id="periodInputHidden" type="hidden" name="period" value="12"/>
+          <input id="firstInputHidden" type="hidden" name="first" value="6000000"/>
+          <input type="text" name="email" value="" style="display:none"/><b>Минимальный доход</b><span><span id="minIncome"></span> руб.</span>
+          <input id="minIncomeInput" type="hidden" name="min-income" value=""/>
+        </div>
+        <div class="b-calculator-result__item"><b>Ежемесячный взнос</b><span>от <span id="monthPay"></span> руб.</span>
+          <input id="monthPayInput" type="hidden" name="month-pay" value=""/>
+        </div>
+        <button class="b-button" onclick="yaCounter4831804.reachGoal('zayavkaodobrenieipoteki'); ga('send', 'event', 'zayavkaodobrenie', 'ipoteki');" type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end /components/hypothec/-->

@@ -1,0 +1,59 @@
+// start /components/hypothec/
+
+link( rel="stylesheet", href="/template/plugin/jquery-ui.css" )
+link( rel="stylesheet", href="/template/plugin/jquery-ui.theme.min.css" )
+script( src="/template/plugin/jquery-ui.js" )
+script( src="/template/plugin/jquery.ui.touch-punch.min.js" )
+
+link( rel="stylesheet", href="/components/hypothec/style.css" )
+script( src="/components/hypothec/script.js" )
+
+#hypothecCalculator
+
+  .b-calculator
+  
+    .b-calculator-form
+
+      h3
+        b Ипотечный калькулятор
+        
+      .b-form-field
+        label Стоимость
+        input#priceInput(type="text" value="11100000" autocomplete="off")
+        #priceSlider(data-min="800000" data-max="30000000")
+      .b-form-field
+        label Ипотечная ставка, %
+        input#percentInput(type="text" value="6" autocomplete="off")
+        #percentSlider(data-min="1" data-max="20")
+      .b-form-field
+        label Срок кредита, лет
+        input#periodInput(type="text" value="12" autocomplete="off")
+        #periodSlider(data-min="1" data-max="50")
+      .b-form-field
+        label Первоначальный взнос
+        input#firstInput(type="text" value="6000000" autocomplete="off")
+        #firstSlider(data-min="800000" data-max="20000000")
+        
+    .b-calculator-result
+      form(action="/anketa/" method="GET")
+        .b-calculator-result__item
+          input#priceInputHidden(type="hidden" name="price" value="11100000")
+          input#percentInputHidden(type="hidden" name="percent" value="6")
+          input#periodInputHidden(type="hidden" name="period" value="12")
+          input#firstInputHidden(type="hidden" name="first" value="6000000")
+          input(type="text" name="email" value="" style="display:none")
+          b Минимальный доход
+          span
+            span#minIncome
+            |  руб.
+          input#minIncomeInput(type="hidden" name="min-income" value="")
+        .b-calculator-result__item
+          b Ежемесячный взнос
+          span
+            | от 
+            span#monthPay
+            |  руб.
+          input#monthPayInput(type="hidden" name="month-pay" value="")
+        button.b-button(onclick="yaCounter4831804.reachGoal('zayavkaodobrenieipoteki'); ga('send', 'event', 'zayavkaodobrenie', 'ipoteki');" type="submit") Отправить заявку
+
+// end /components/hypothec/

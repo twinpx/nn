@@ -1,0 +1,75 @@
+#actionsDetail
+  position relative
+  
+.b-actions-detail
+  position absolute
+  top 0
+  left 0
+  width 100%
+  transition( opacity .5s ease )
+  opacity 0
+  z-index 0
+  
+  &__ph
+    margin 0 -15px
+    padding-top 20px
+    
+    &__label
+      width calc( 16.6666666667% - 30px - 20px )
+      margin-right calc( 15px + 20px )
+      margin-left 15px
+      margin-top 10px
+      height 24px
+      border-radius 5px
+      background-color $placeholder-color
+      float left
+    
+    &__h1
+      width calc( 66.6666666667% - 30px )
+      height 40px
+      background-color $placeholder-color
+      margin 0 0 63px 15px
+      float left
+    
+    &__img
+      clear both
+      background-color $placeholder-color
+      padding-top 30%
+      margin-bottom 20px
+      margin-left calc( 16.6666666667% + 15px )
+      width calc( 66.6666666667% - 30px )
+    
+    &__text
+      margin-left calc( 25% + 15px )
+      width calc( 50% - 30px )
+    
+      div
+        height 7px
+        background-color $placeholder-color
+        margin-bottom 15px
+        
+        &:last-child
+          width 70%
+    
+    @media( max-width 600px )
+      margin 0
+      padding 0
+      
+      &__label
+        width 30%
+        margin 0 0 20px
+        float none
+      
+      &__h1
+        width 100%
+        margin 0 0 23px
+        float none
+      
+      &__img
+        width 100%
+        margin 0 0 23px
+        padding-top 80%
+      
+      &__text
+        width 100%
+        margin 0

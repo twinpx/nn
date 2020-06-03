@@ -1,0 +1,79 @@
+// start /components/detail/
+
+link( href="/template/fotorama.css" rel="stylesheet" )
+script( src="/template/fotorama.js" )
+
+link( rel="stylesheet", href="/components/detail/style.css" )
+script( src="/components/detail/script.js" )
+
+.b-detail-ph
+  .b-detail-ph__gallery
+    div
+  .b-detail-ph__text
+    div
+    div
+    div
+    div
+    div
+    div
+
+.b-detail
+
+  .row
+
+    .col.l6.m12.s12
+      
+      include ../../modules/fotorama/detail
+      
+    hr.show-on-small.show-on-medium.hide-on-med-and-up.clearfix
+    
+    .col.l5.m12.s12.push-l1
+    
+      hr
+    
+      .row
+      
+        .col.s3
+          .b-h-num
+            .b-h6 Корпус
+            .b-h-num__num 47
+      
+        .col.s3
+          .b-h-num
+            .b-h6 Секция
+            .b-h-num__num 1
+      
+        .col.s3
+          .b-h-num
+            .b-h6 Этаж
+            .b-h-num__num 5
+      
+        .col.s3
+          .b-h-num
+            .b-h6 Комнат
+            .b-h-num__num 5
+            
+      hr
+    
+      .row
+      
+        .col.xl6.l12.m12.s12
+          .b-h-num
+            .b-h6 Площадь
+            .b-h-num__num 89,3 м<sup>2</sup>
+            
+        hr.i-hide-on-xlarge-only.clearfix
+      
+        .col.xl6.l12.m12.s12
+          .b-h-num
+            .b-h6 Цена за квадратный метр
+            .b-h-num__num 250 000 руб.
+            
+      hr
+    
+      .b-h-num
+        .b-h6 Цена
+        s 8 000 000 руб.
+        .b-h-num__num 7 154 000 руб.
+            
+// end /components/detail/

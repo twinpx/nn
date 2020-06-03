@@ -1,0 +1,76 @@
+@import '../../styl/component-include.styl'
+    
+#banks
+  display block
+  
+.b-banks-table
+  display table
+
+  tr
+    border-bottom-color $brand-color
+    
+  th
+    font-size 9pt
+    text-transform uppercase
+    font-weight bold
+    text-align center
+    padding-bottom 19px
+    width 18%
+    
+    &:first-child
+      text-align left
+      width 28%
+      
+    @media( max-width 992px)
+      font-size 7pt
+      
+    @media( max-width 600px)
+      font-size 5pt
+      display inline-block
+      width 25%
+      padding-bottom 9px
+      
+      &:first-child
+        display none
+  
+  tbody
+    
+    tr
+      height 65px
+      border-bottom-color $brand-color
+      
+      @media( max-width 600px)
+        display block
+        padding 20px 0
+        height auto
+      
+    td
+      vertical-align middle
+      text-align center
+      padding 12px 0
+      
+      @media( max-width 992px)
+        font-size 10.5pt
+      
+      @media( max-width 600px)
+        display inline-block
+        width calc( 25% - 4px )
+        font-size 9pt
+      
+      &:first-child
+        text-align left
+          
+        img
+          width 200px
+          display inherit
+        
+        @media( max-width 600px)
+          display block
+          width 100%
+          text-align center
+          margin-bottom 15px
+          
+          img
+            width 200px
+            display inline
+            

@@ -1,0 +1,23 @@
+extends ../../layouts/main
+
+block title
+  title Галерея | NN
+  
+block ph-styles
+  link( href="/template/placeholders/gallery.css" rel="stylesheet" )
+
+block content
+  
+  .container
+
+    hr
+    h1 Галерея
+  
+  section#bigGallery.container
+
+    .b-big-gallery__ph
+  
+    include ../../components/gallery/template
+  
+  hr.i-size-L
+  

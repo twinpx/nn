@@ -1,0 +1,45 @@
+extends ../../layouts/main
+
+block title
+  title Новости | NN
+  
+block ph-styles
+  link( href="/template/placeholders/news.css" rel="stylesheet" )
+
+block content
+  
+  .container
+
+    hr
+    h1 Новости
+  
+  section#news.container
+
+    .b-news__ph
+    
+      .b-news__ph__item
+        .b-news__ph__img
+        .b-news__ph__text
+          div
+          div
+          div
+        
+      .b-news__ph__item
+        .b-news__ph__img
+        .b-news__ph__text
+          div
+          div
+          div
+        
+      .b-news__ph__item
+        .b-news__ph__img
+        .b-news__ph__text
+          div
+          div
+          div
+  
+    include ../../components/pagination/template
+    include ../../components/news/template
+  
+  hr.i-size-L
+  

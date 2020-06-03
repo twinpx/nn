@@ -1,0 +1,33 @@
+extends ../../layouts/main
+
+block title
+  title Форма | NN
+  
+block ph-styles
+  link( href="/template/placeholders/detail.css" rel="stylesheet" )
+
+block content
+
+  .container
+
+    hr
+    
+    h1 Отправить заявку на лот #3205
+    
+    hr.i-size-L    
+
+  section#detail.container
+
+    include ../../components/detail/form
+                
+    hr.i-size-L
+    
+  section#form.container
+      
+    .row
+    
+      .col.m6.offset-m3.s12
+      
+        include ../../components/form/template
+    
+    hr.i-size-L

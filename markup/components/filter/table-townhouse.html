@@ -1,0 +1,70 @@
+
+<div class="b-tabs__tab b-filter-item" data-tab="townhouse">
+  <div class="row">
+    <div class="col xl3 l4 m5 s12">
+      <div class="b-filter-btn"><span class="i-show">Использовать фильтр</span><span>Свернуть фильтр</span><i style="background-image: url( '/upload/icons/filter.svg' );"></i></div>
+      <div class="b-filter-body">
+        <div class="b-filter__input"><span>от</span> 
+          <input class="b-filter-house-input-min" type="text" value=""/> <span>до</span> 
+          <input class="b-filter-house-input-max" type="text" value=""/>
+        </div>
+        <label>№ Дома</label>
+        <div class="b-filter__wrapper">
+          <div class="b-filter-house"></div>
+        </div>
+        <p></p>
+        <div class="b-filter__input"><span>от</span> 
+          <input class="b-filter-rooms-input-min" type="text" value=""/> <span>до</span> 
+          <input class="b-filter-rooms-input-max" type="text" value=""/>
+        </div>
+        <label>Комнат</label>
+        <div class="b-filter__wrapper">
+          <div class="b-filter-rooms"></div>
+        </div>
+        <p></p>
+        <div class="b-filter__input"><span>от</span> 
+          <input class="b-filter-square-input-min" type="text" value=""/> <span>до</span> 
+          <input class="b-filter-square-input-max" type="text" value=""/>
+        </div>
+        <label>Площадь(м²)</label>
+        <div class="b-filter__wrapper">
+          <div class="b-filter-square"></div>
+        </div>
+        <p></p>
+        <div class="b-filter__input"><span>от</span> 
+          <input class="b-filter-land-input-min" type="text" value=""/> <span>до</span> 
+          <input class="b-filter-land-input-max" type="text" value=""/>
+        </div>
+        <label>Площадь з.у.(сот.)</label>
+        <div class="b-filter__wrapper">
+          <div class="b-filter-land"></div>
+        </div>
+        <p></p>
+        <label>Стоимость</label>
+        <div class="b-filter-price-value"></div>
+        <div class="b-filter__wrapper">
+          <div class="b-filter-price"></div>
+        </div>
+        <p></p>
+        <div class="b-filter-reset">Сбросить параметры</div>
+      </div>
+    </div>
+    <hr class="i-size-L show-on-small hide-on-med-and-up clearfix"/>
+    <div class="col xl9 l8 m7 s12">
+      <table class="b-filter-table">
+        <thead>
+          <tr>
+            <th>№ Дома</th>
+            <th>Номер квартиры</th>
+            <th>Комнат</th>
+            <th>Площадь</th>
+            <th>Площадь з.у.</th>
+            <th>Цена</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody data-orderlink="/form/?id=" data-json="/components/filter/filter-data-townhouse.json" data-method="GET"></tbody>
+      </table>
+    </div>
+  </div>
+</div>

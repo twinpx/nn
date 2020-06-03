@@ -1,0 +1,206 @@
+@import '../../styl/component-include.styl'
+
+#planYmap
+  height 500px
+
+.i-ph-animated
+
+  .b-plan
+    position static
+    width auto
+    opacity 1
+    
+  .b-plan__ph
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    z-index -1
+    
+.b-plan
+  
+  &__legend
+    display flex
+    justify-content space-between
+    
+    &-item
+      display flex
+      align-items center
+      
+      i
+        display inline-block
+        width 20px
+        height 20px
+        margin-right 7px
+          
+      span
+        display inline-block
+          
+      @media( max-width 992px )
+        
+        i
+          width 15px
+          height 15px
+          
+        span
+          font-size 12px
+          
+    @media( max-width 600px )
+      flex-wrap wrap
+      justify-content flex-start
+      
+      &-item
+        margin 0 10px 3px 0
+  
+.b-placemark-icon
+  width 32px
+  height 32px
+  color #fff
+  font-size 10px
+  text-align center
+  box-sizing border-box
+  padding-top 10px
+  margin -16px 0 0 -16px
+  border-radius 50%
+  
+  &.i-infrastructure
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    display none
+    
+    .i-show-infrastructure &
+      display block
+  
+  /*&.i-highrise
+    background-color $highrise-color
+  
+  &.i-lowrise
+    background-color $lowrise-color
+  
+  &.i-townhouse
+    background-color $townhouse-color
+  
+  &.i-cottage
+    background-color $cottage-color
+  
+  &.i-duplex
+    background-color $duplex-color*/
+  
+.b-balloon
+  background-color #fff
+  box-shadow -5px -5px 20px rgba( 0,0,0,.2 )
+  padding 15px
+  width 250px
+  position relative
+  padding-left 80px
+  box-sizing border-box
+  font-size 16px
+  
+  &.i-infrastructure
+    padding 15px 30px 15px 45px
+    text-align center
+  
+  &__close
+    width 10px
+    height 10px
+    position absolute
+    top 10px
+    right 14px
+    cursor pointer
+    
+    &:before
+      content ''
+      display block
+      border-right 1px solid #999
+      width 0
+      height 10px
+      transform( rotate(45deg))
+      position absolute
+      top 0
+      right 4px
+    
+    &:after
+      content ''
+      display block
+      border-right 1px solid #999
+      width 0
+      height 10px
+      transform( rotate(-45deg))
+      position absolute
+      top 0
+      right 4px
+      
+  &__name
+    font-weight bold
+    font-size 20px
+    text-align center
+    width 80px
+    position absolute
+    top 13px
+    left 0
+    
+  &__icon
+    width 30px
+    height 30px
+    position absolute
+    top 10px
+    left 15px
+    background-repeat no-repeat
+    background-position center
+    background-size contain
+      
+  &__heading
+    font-weight bold
+    font-size 16px
+    margin-bottom 15px
+    
+    .b-balloon.i-infrastructure &
+      margin-bottom 0
+      
+  &__props
+    font-size 16px
+    margin-bottom 15px
+      
+  &__button
+    
+    a
+      display inline-block
+      vertical-align top
+      color #fff
+      text-transform uppercase
+      text-align center
+      line-height 30px
+      font-size 10px
+      padding 0 20px
+      
+      /*.i-highrise &
+        background-color $highrise-color
+        
+      .i-lowrise &
+        background-color $lowrise-color
+      
+      .i-townhouse &
+        background-color $townhouse-color
+      
+      .i-cottage &
+        background-color $cottage-color
+      
+      .i-duplex &
+        background-color $duplex-color
+  
+  &.i-highrise
+    border-bottom 4px solid $highrise-color
+  
+  &.i-lowrise
+    border-bottom 4px solid $lowrise-color
+  
+  &.i-townhouse
+    border-bottom 4px solid $townhouse-color
+  
+  &.i-cottage
+    border-bottom 4px solid $cottage-color
+  
+  &.i-duplex
+    border-bottom 4px solid $duplex-color*/

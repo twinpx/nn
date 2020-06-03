@@ -1,0 +1,73 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+
+  .b-buildings__ph
+    position absolute
+    top 0
+    left 0
+    width calc( 100% + 30px )
+    opacity 0
+    z-index 0
+    
+    @media( max-width 600px )
+      width 100%
+      
+  .b-buildings
+    position relative
+    opacity 1
+    width auto
+
+.b-buildings
+  display flex
+  flex-wrap wrap
+  justify-content center
+  align-content center
+  margin 0 -15px
+  padding-bottom 30px
+  background-repeat no-repeat
+  background-position center bottom
+  background-size 80%
+  position absolute
+  opacity 0
+  transition( opacity .5s ease )
+
+  &__item
+    width calc( 100%/3 - 30px )
+    padding-top 20%
+    position relative
+    margin 0 15px 30px
+    background-repeat no-repeat
+    background-position center bottom
+    background-size cover
+    border-bottom 4px solid $brand-color
+    
+    span
+      position absolute
+      bottom 15px
+      left 15px
+      color #fff
+      font-size 16pt
+      
+  a&__item:hover
+    opacity 1
+      
+  @media( max-width 600px )
+    display block
+    margin 0
+    padding 0
+    background none !important
+    
+    &__item
+      display block
+      width 100%
+      padding-top 70%
+      margin 0 0 15px
+      
+  @media( min-width 601px ) and ( max-width 992px )
+    background-size 200%
+    background-position 80% bottom
+    
+    &__item
+      width calc( 100%/2 - 30px )
+      padding-top 35%

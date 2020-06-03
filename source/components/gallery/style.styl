@@ -1,0 +1,72 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+  
+  .b-big-gallery
+    position static
+    width auto
+    opacity 1
+    
+  .b-big-gallery__ph
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    z-index -1
+    
+.b-big-gallery
+  
+  &__item
+    padding-top 75%
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+      
+  .fotorama__arr
+    width 64px
+    height 64px
+    margin-top -32px
+    
+    @media( max-width 992px )
+      width 32px
+      height 32px
+      margin-top -16px
+  
+    &.fotorama__arr--prev
+      background url( './images/gallery-left-arrow.svg' ) no-repeat center
+      background-size cover
+  
+    &.fotorama__arr--next
+      background url( './images/gallery-right-arrow.svg' ) no-repeat center
+      background-size cover
+      
+  .fotorama__dot
+    display: block
+    width 8px
+    height 8px
+    position relative
+    top 12px
+    left 6px
+    border-radius 4px
+    border none
+    background-color #f2f2f2
+    
+  .fotorama__nav__frame.fotorama__active .fotorama__dot
+    width 8px
+    height 8px
+    border-width 0
+    background-color $brand-color-2
+      
+  .fotorama__wrap--css3
+    .fotorama__arr--prev
+      transform( translateX( 20px ))
+      
+      @media( max-width 992px )
+        transform( translateX( 10px ))
+      
+    .fotorama__arr--next
+      transform( translateX( -20px ))
+      
+      @media( max-width 992px )
+        transform( translateX( -10px ))

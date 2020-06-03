@@ -1,0 +1,31 @@
+extends ../../layouts/main
+
+block title
+  title Ипотека | NN
+  
+block ph-styles
+  link( href="/template/placeholders/hypothec.css" rel="stylesheet" )
+
+block content
+  
+  .container
+
+    hr
+    h1 Ипотека
+  
+  section#hypothec.container
+
+    .b-hypothec__ph
+  
+    include ../../components/hypothec/template
+  
+  hr.i-size-L
+  
+  section#banks.container
+  
+    include ../../modules/heading/banks
+  
+    include ../../components/banks/template
+  
+  hr.i-size-L
+  

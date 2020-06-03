@@ -1,0 +1,1 @@
+!function(o){"use strict";o(function(){o(".b-top-gallery .b-fotorama__gallery").fotorama(),setTimeout(function(){o(".b-fotorama__container, .b-fotorama__sticky-content").addClass("i-load")},100)})}(jQuery);

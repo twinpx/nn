@@ -1,0 +1,23 @@
+extends ../../layouts/main
+
+block title
+  title Визуальный выборщик | NN
+  
+block ph-styles
+  link( href="/template/placeholders/visual.css" rel="stylesheet" )
+
+block content
+  
+  .container
+
+    hr
+    h1 Визуальный выборщик
+  
+  section#visual.container.hide-on-small-only.show-on-medium-and-up
+
+    .b-visual__ph
+  
+    include ../../components/visual/template
+  
+  hr.i-size-L
+  

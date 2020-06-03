@@ -1,0 +1,54 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+
+  .b-heading__ph
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    
+  .b-heading
+    position static
+    opacity 1
+    
+    &__h
+      position static
+      width auto
+      opacity 1
+      
+.b-heading
+  margin 40px 0 20px
+
+  &__h
+    border-top 3px solid $brand-color
+    padding 0 30px
+    text-align center
+    height 31px
+    
+    @media( max-width 600px )
+      padding 0
+      text-align center !important
+    
+    &.i-left
+      text-align left
+    
+    &.i-right
+      text-align right
+    
+    span
+      display inline-block
+      vertical-align top
+      padding 0 15px
+      text-transform uppercase
+      font-family $font-serif
+      font-size 20pt
+      transform( translateY( -15px ))
+      background-color #fff
+      line-height 28px
+      color #2c2c2c
+    
+      @media( max-width 600px )
+        padding 0 5px
+        font-size 14pt

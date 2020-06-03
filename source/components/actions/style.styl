@@ -1,0 +1,36 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+  
+  .b-actions
+    position static
+    width auto
+    opacity 1
+    
+  .b-actions__ph
+    position absolute
+    top 0
+    left 0
+    opacity 0
+    z-index -1
+    
+.b-actions
+
+  &__img
+    display block
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    padding-top 80%
+    
+  &__title
+    font-weight bold
+    
+    a&
+    
+      &,
+      &:hover
+        color #000
+    
+  &__date
+    font-size 14px

@@ -1,0 +1,40 @@
+.b-header
+  position relative
+  overflow hidden
+  padding-top 106px
+  
+  &__container
+    position absolute
+    top 0
+    left 0
+    opacity 0
+    z-index 1
+    
+  .sidenav
+    display none
+
+  &__ph
+    position fixed
+    padding 20px 0
+    width 100%
+    transition( opacity .5s ease )
+    top 0
+    left 0
+    z-index 0
+    
+    &-container
+      background-color $placeholder-color
+      padding 0 !important
+        
+    &-logo
+      width 28%
+      max-width 300px
+      
+      div
+        padding-top calc( 6534% / 300 )
+        
+      @media( max-width 600px )
+        width 80%
+      
+      @media( min-width 600px ) and ( max-width 992px )
+        width 60%

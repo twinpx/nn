@@ -1,0 +1,100 @@
+@import '../../styl/component-include.styl'
+
+.i-ph-animated
+  
+  .b-visual
+    position static
+    width auto
+    opacity 1
+    
+  .b-visual__ph
+    position absolute
+    top 0
+    left 0
+    width 100%
+    opacity 0
+    z-index -1
+
+.b-visual
+  position relative
+  
+  &__hint
+    position absolute
+    top 0
+    left 0
+    width 40px
+    height 40px
+    text-align center
+    padding-top 7px
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    font-size 14px
+    pointer-events none
+    z-index 10
+
+  img
+    width 100%
+    height auto
+    vertical-align top
+    
+  &__hover
+    position absolute
+    top 0
+    left 0
+    width 100%
+    pointer-events none
+    opacity 0
+    transition( opacity .2s ease )
+    
+    &.i-show
+      opacity .5
+      
+  area
+    outline none
+      
+  &__popup
+    position absolute
+    top 70px
+    right 50px
+    background-color #fff
+    border-bottom 4px solid $brand-color
+    padding 15px
+    width 230px
+    opacity 0
+    transform( scale(.9))
+    transition( all .5s ease )
+    pointer-events none
+    font-size 10px
+    z-index 11
+    
+    &.i-show
+      opacity 1
+      transform( scale(1))
+      pointer-events auto
+      
+    
+    @media( max-width 992px )
+      top 20px
+      left 20px
+    
+    h3
+      margin 0
+      font-weight bold
+      font-size 16px
+      
+    p
+      margin 10px 0
+      font-size 14px
+      
+    a
+      display inline-block
+      vertical-align top
+      color #fff
+      text-transform uppercase
+      text-align center
+      line-height 30px
+      font-size 10px
+      padding 0 20px
+      background-color $brand-color
+        
