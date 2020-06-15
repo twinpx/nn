@@ -10,11 +10,7 @@
                 zoom: window.planYmapZoom,
                 controls: [ 'zoomControl', 'typeSelector' ]
             }, {
-              yandexMapDisablePoiInteractivity: true,
-              /*restrictMapArea: [
-                    [59.838,29.511],
-                    [60.056,30.829]
-                ]*/
+              yandexMapDisablePoiInteractivity: true
             }),
             placemarkLayouts = {},
             balloonLayouts = {},
