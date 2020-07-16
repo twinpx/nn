@@ -146,7 +146,7 @@
           self[ "$" + key ].slider( "values", 1, obj[ key ][1]);
           
           if ( key === 'price' ) {
-            self.$elem.find( ".b-filter-" + key + "-value" ).text( obj[ key ][0] + ' — ' + obj[ key ][1] + ' руб.' );
+            self.$elem.find( ".b-filter-" + key + "-value" ).text( Number( obj[ key ][0] ).toLocaleString('ru-RU') + ' — ' + Number( obj[ key ][1] ).toLocaleString('ru-RU') + ' руб.' );
           } else {
             self[ "$" + key ].find( ".ui-slider-handle:eq(0) span" ).text( obj[ key ][0]);
             self[ "$" + key ].find( ".ui-slider-handle:eq(1) span" ).text( obj[ key ][1]);
@@ -400,7 +400,7 @@
           range: true,
           min: minMax[0],
           max: minMax[1],
-          step: 100,
+          step: 1,
           values: [ minMaxCookie[0], minMaxCookie[1] ],
           create: function( event, ui ) {
             self.$priceInputValue.text( Number( minMaxCookie[0] ).toLocaleString('ru-RU') + ' — ' +  Number( minMaxCookie[1] ).toLocaleString('ru-RU') + ' руб.' );
