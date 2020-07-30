@@ -1,0 +1,22 @@
+@import '../../styl/component-include.styl'
+
+.b-breadcrumbs
+  display flex
+  justify-content flex-start
+  align-items center
+  flex-wrap wrap
+
+  a,
+  span
+    margin-right 5px 
+    
+  &.i-ph-animated
+    
+    a,
+    span
+      opacity 1
+    
+    &:after
+      background-color transparent
+      opacity 0
+      z-index 0

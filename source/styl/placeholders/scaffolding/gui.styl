@@ -24,6 +24,32 @@ h1
     transition( all .5s ease )
     z-index 1
   
+.b-breadcrumbs
+  font-size 8.5pt
+  font-weight 300
+  line-height 18px
+  min-height 18px
+  position relative
+  margin 8px 0
+  overflow hidden
+  
+  a,
+  span
+    opacity 0
+    transition( opacity .5s ease )
+  
+  &:after
+    content ''
+    display block
+    position absolute
+    top 2px
+    left 0
+    height 14px
+    background-color $placeholder-color
+    width 250px
+    transition( all .5s ease )
+    z-index 1
+  
 hr
   border none
   margin 0
