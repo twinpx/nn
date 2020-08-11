@@ -32,8 +32,8 @@
     transition( opacity .5s ease )
     
     > [id*=bx_incl_area]
-      width calc(100% - 191px - 28%)
-      max-width calc(100% - 191px - 300px)
+      width calc(100% - 220px - 28%)
+      max-width calc(100% - 220px - 300px)
       
       @media (max-width: 1200px)
         display none
@@ -48,7 +48,7 @@
     max-width 300px
     
     img
-      width 100%
+      width calc( 100% - 30px )
       height auto
       display inline-block
       vertical-align top
@@ -67,8 +67,8 @@
     overflow hidden
     padding 0 15px
     height 27px
-    width calc( 100% - 191px - 28% )
-    max-width calc( 100% - 191px - 300px )
+    width calc( 100% - 220px - 28% )
+    max-width calc( 100% - 220px - 300px )
     
     @media( max-width 1200px )
       display none
@@ -82,7 +82,8 @@
       
   &__icons
     white-space nowrap
-    width 191px
+    width 220px
+    text-align right
     
     [id*=bx_incl_area]
       display inline-block
