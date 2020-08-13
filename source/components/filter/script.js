@@ -427,7 +427,7 @@
           if ( 1*elem[ arrayProp ] && 1*elem[ arrayProp ] > max ) {
             max = 1*elem[ arrayProp ];
           }
-          if ( 1*elem[ arrayProp ] && 1*elem[ arrayProp ] < min ) {
+          if ( !isNaN( elem[ arrayProp ]) && 1*elem[ arrayProp ] < min ) {
             min = 1*elem[ arrayProp ];
           }
         });
@@ -563,54 +563,54 @@
           var house, section, corp, floor, flat, floorduplex, rooms, square, land, price;
           var end = "<td><a href=\"" + self.$tbody.data( 'orderlink' ) + element.ExternalId + "\" class=\"btn\">Оставить заявку</a></td></tr>";
           
-          if ( element.HouseCount ) {
+          if ( typeof element.HouseCount !== 'undefined' ) {
             tr += " data-housecount=\"" + element.HouseCount + "\"";
             house = "<td>" + element.HouseCount + "</td>";
           }
           
-          if ( element.SectionNumber ) {
+          if ( typeof element.SectionNumber !== 'undefined' ) {
             tr += " data-sectionnumber=\"" + element.SectionNumber + "\"";
             section = "<td>" + element.SectionNumber + "</td>";
           }
           
-          if ( element.CorpCount ) {
+          if ( typeof element.CorpCount !== 'undefined' ) {
             tr += " data-corpnumber=\"" + element.CorpCount + "\"";
             corp = "<td>" + element.CorpCount + "</td>";
           }
           
-          if ( element.FloorNumber ) {
+          if ( typeof element.FloorNumber !== 'undefined' ) {
              tr += " data-floornumber=\"" + element.FloorNumber + "\"";
              floor = "<td>" + element.FloorNumber + "</td>";
              floorduplex = "";
           }
           
-          if ( element.FlatNum ) {
+          if ( typeof element.FlatNum !== 'undefined' ) {
              tr += " data-flatnum=\"" + element.FlatNum + "\"";
              flat = "<td>" + element.FlatNum + "</td>";
           }
           
-          if ( element.FloorsDuplex ) {
+          if ( typeof element.FloorsDuplex !== 'undefined' ) {
              tr += " data-floorsduplex=\"" + element.FloorsDuplex + "\"";
              floorduplex = "<td>" + element.FloorsDuplex + "</td>";
              floor = "";
           }
           
-          if ( element.FlatRoomsCount ) {
+          if ( typeof element.FlatRoomsCount !== 'undefined' ) {
              tr += " data-flatroomscount=\"" + element.FlatRoomsCount + "\"";
              rooms = "<td>" + element.FlatRoomsCount + "</td>";
           }
           
-          if ( element.TotalArea ) {
+          if ( typeof element.TotalArea !== 'undefined' ) {
              tr += " data-totalarea=\"" + element.TotalArea + "\"";
              square = "<td>" + element.TotalArea + " м<sup>2</sup></td>";
           }
           
-          if ( element.LandArea ) {
+          if ( typeof element.LandArea !== 'undefined' ) {
              tr += " data-landarea=\"" + element.LandArea + "\"";
              land = "<td>" + element.LandArea + " соток</td>";
           }
           
-          if ( element.Price && element.PriceFormat ) {
+          if ( typeof element.Price !== 'undefined' && typeof element.PriceFormat !== 'undefined' ) {
              tr += " data-price=\"" + element.PriceFormat + "\"";
              price = "<td data-sort=\"" + element.Price + "\">" + element.PriceFormat + " руб.</td>";
           }
