@@ -601,18 +601,22 @@
           }
           
           if ( typeof element.TotalArea !== 'undefined' ) {
-             tr += " data-totalarea=\"" + element.TotalArea + "\"";
-             square = "<td>" + element.TotalArea + " м<sup>2</sup></td>";
+            tr += " data-totalarea=\"" + element.TotalArea + "\"";
+            square = "<td>" + element.TotalArea + " м<sup>2</sup></td>";
           }
           
           if ( typeof element.LandArea !== 'undefined' ) {
-             tr += " data-landarea=\"" + element.LandArea + "\"";
-             land = "<td>" + element.LandArea + " соток</td>";
+            tr += " data-landarea=\"" + element.LandArea + "\"";
+            if ( element.LandArea === 0 ) {
+              land = "<td> — </td>";
+            } else {
+              land = "<td>" + element.LandArea + " сот.</td>";
+            }
           }
           
           if ( typeof element.Price !== 'undefined' && typeof element.PriceFormat !== 'undefined' ) {
-             tr += " data-price=\"" + element.PriceFormat + "\"";
-             price = "<td data-sort=\"" + element.Price + "\">" + element.PriceFormat + " руб.</td>";
+            tr += " data-price=\"" + element.PriceFormat + "\"";
+            price = "<td data-sort=\"" + element.Price + "\">" + element.PriceFormat + " руб.</td>";
           }
           
           tr += " data-layoutphoto=\"" + element.LayoutPhoto + "\" data-externalid=\"" + element.ExternalId + "\">";
