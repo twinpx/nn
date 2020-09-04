@@ -9,14 +9,14 @@
       margin-top -40px
     
     &.fotorama__arr--prev
-      background url( './images/left-arrow.svg' ) no-repeat center
+      background url( 'images/left-arrow.svg' ) no-repeat center
       background-size cover
       width 50px
       height 50px
       margin-left 10px
       
     &.fotorama__arr--next
-      background url( './images/right-arrow.svg' ) no-repeat center
+      background url( 'images/right-arrow.svg' ) no-repeat center
       background-size cover
       width 50px
       height 50px
@@ -24,6 +24,16 @@
         
     @media( max-width 767px )
       display none !important
+      
+  &.i-blue-arrows
+  
+    .fotorama__arr
+    
+      &.fotorama__arr--prev
+        background-image url( 'images/left-arrow-dark.svg' )
+        
+      &.fotorama__arr--next
+        background-image url( 'images/right-arrow-dark.svg' )
         
   .fotorama__nav-wrap
       position relative
