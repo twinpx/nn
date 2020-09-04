@@ -18,7 +18,7 @@ $( '.b-sidenav-close' ).click( function(e) {
 
 //placeholder
 setTimeout( function() {
-  $( '.b-header, h1, .b-breadcrumbs, #gallery, #planText, #buildings, .b-heading, #detail, #plan, #prices, #visual, #actions, #actionsDetail, #news, #newsDetail, #bigGallery, #docs, #hypothec' ).addClass( 'i-ph-animated' );
+  $( '.b-header, h1, .b-breadcrumbs, #gallery, #planText, #buildings, .b-heading, #detail, #plan, #prices, #visual, #actions, #actionsDetail, #news, #newsDetail, #bigGallery, #docs, #hypothec, #flat-choice' ).addClass( 'i-ph-animated' );
 }, 500 );
 
 //scroll effects

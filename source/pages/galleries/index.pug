@@ -1,0 +1,27 @@
+extends ../../layouts/main
+
+block title
+  title Galleries | NN
+  
+block ph-styles
+  link( href="/template/placeholders/main.css" rel="stylesheet" )
+
+block content
+    
+  section#gallery.container
+  
+    .b-gallery__ph
+      .b-gallery__ph-container
+    
+    include ../../components/top-gallery/template
+  
+  hr.i-size-L
+    
+  section#flat-choice.container
+  
+    .b-gallery__ph
+      .b-gallery__ph-container
+    
+    include ../../components/top-gallery/blue-arrows
+  
+  
