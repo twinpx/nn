@@ -417,3 +417,44 @@
             width 100%
             margin-bottom 15px
             text-align center
+            
+  &[ data-tab=commercial ]
+  
+    table
+    
+      th
+        width auto
+          
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3)
+          width 17%
+        
+        @media( max-width 1200px )
+          display inline-block
+            
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3)
+            width 33.3%
+          
+          &:nth-child(4),
+          &:nth-child(5)
+            display none
+            
+      td
+        
+        @media( max-width 1200px )
+          display inline-block
+          width 33.3%
+            
+          &:nth-child(4)
+            padding-top 15px
+            font-size 14pt
+            
+          &:nth-child(4),
+          &:nth-child(5)
+            display block
+            width 100%
+            margin-bottom 15px
+            text-align center
