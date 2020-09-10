@@ -16,7 +16,6 @@
   justify-content center
   align-content center
   margin 0 -15px
-  padding-bottom 30px
   transition( opacity .5s ease )
 
   &__item
@@ -27,6 +26,13 @@
     background-color $placeholder-color
     border-bottom 4px solid $placeholder-color
     box-sizing content-box
+      
+    &:nth-child(4),
+    &:nth-child(5)
+    &:nth-child(6),
+    &:nth-child(7)
+      width calc( 100% / 4 - 30px )
+      margin-bottom 0
         
   @media( max-width 600px )
     display block
@@ -36,7 +42,7 @@
     
     &__item
       display block
-      width 100%
+      width 100% !important
       padding-top 70%
       margin 0 0 15px
       

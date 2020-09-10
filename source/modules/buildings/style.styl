@@ -24,10 +24,6 @@
   justify-content center
   align-content center
   margin 0 -15px
-  padding-bottom 30px
-  background-repeat no-repeat
-  background-position center bottom
-  background-size 80%
   position absolute
   opacity 0
   transition( opacity .5s ease )
@@ -49,6 +45,13 @@
       color #fff
       font-size 16pt
       
+    &:nth-child(4),
+    &:nth-child(5)
+    &:nth-child(6),
+    &:nth-child(7)
+      width calc( 100% / 4 - 30px )
+      margin-bottom 0
+      
   a&__item:hover
     opacity 1
       
@@ -60,7 +63,7 @@
     
     &__item
       display block
-      width 100%
+      width 100% !important
       padding-top 70%
       margin 0 0 15px
       
