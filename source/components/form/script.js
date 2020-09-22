@@ -8,12 +8,29 @@
 
     $( '.b-form form' ).submit( function(e) {
       
-      var tel;
+      var tel, $form = $( this );
       
       if ( window.ComagicWidget ) {
         tel = $( this ).find( 'input[type=tel]' ).val();
         ComagicWidget.sitePhoneCall({phone:tel}, function(resp){if ( window.console ) {console.log(resp);}});
+        
+        //send message
+        var credentials = Comagic.getCredentials();
+        for ( var field in credentials ) {
+          if ( credentials.hasOwnProperty( field )) {
+            $form.append( '<input type="hidden" name="' + field + '" value="' + credentials[ field ] + '" />' );
+          }
+        }
+        
+        if ( $form.attr( 'id' ) === 'form_request' ) {
+          $form.append( '<input type="hidden" name="is_sale" value="true" />' );
+          if ( document.getElementById( 'request_price' )) {
+            $form.append( '<input type="hidden" name="sale_cost" value="' + document.getElementById( 'request_price' ).textContent + '" />' );
+          }
+        }
       }
+      
+      return true;
     });
     
    $( 'form#form_ipoteka' ).submit( function() {
