@@ -11,8 +11,8 @@
       var tel, $form = $( this );
       
       if ( window.ComagicWidget ) {
-        tel = $( this ).find( 'input[type=tel]' ).val();
-        ComagicWidget.sitePhoneCall({phone:tel}, function(resp){if ( window.console ) {console.log(resp);}});
+        //tel = $( this ).find( 'input[type=tel]' ).val();
+        //ComagicWidget.sitePhoneCall({phone:tel}, function(resp){if ( window.console ) {console.log(resp);}});
         
         //send message
         var credentials = Comagic.getCredentials();
