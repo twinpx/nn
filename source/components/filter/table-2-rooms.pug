@@ -1,0 +1,16 @@
+.b-filter-item
+
+  table.b-filter-table
+    
+    thead
+      tr
+        th № Дома
+        th Секция
+        th Этаж
+        th Номер квартиры
+        th Комнат
+        th Площадь
+        th Цена
+        th
+        
+    tbody( data-orderlink="/form/?id=" data-json="/components/filter/filter-data-highrise.json" data-method="GET" data-filter='{"FlatRoomsCount":2, "HouseCount":2}' )

@@ -1,0 +1,24 @@
+
+<!-- start /components/filter/-->
+<link rel="stylesheet" href="/components/filter/style.css"/>
+<script src="/components/filter/script.js"></script>
+<div class="b-filter">
+  <div class="b-filter-item">
+    <table class="b-filter-table">
+      <thead>
+        <tr>
+          <th>№ Дома</th>
+          <th>Секция</th>
+          <th>Этаж</th>
+          <th>Номер квартиры</th>
+          <th>Комнат</th>
+          <th>Площадь</th>
+          <th>Цена</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody data-orderlink="/form/?id=" data-json="/components/filter/filter-data-highrise.json" data-method="GET" data-filter="{&quot;FlatRoomsCount&quot;:2, &quot;HouseCount&quot;:2}"></tbody>
+    </table>
+  </div>
+</div>
+<!-- end /components/filter/-->

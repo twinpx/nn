@@ -1,0 +1,26 @@
+extends ../../layouts/main
+
+block title
+  title 2-комнатные | NN
+  
+block ph-styles
+  link( href="/template/placeholders/prices.css" rel="stylesheet" )
+
+block content
+  
+  .container
+
+    hr
+    h1 Двухкомнатные квартиры
+  
+  section#prices.container
+
+    .b-prices__ph
+      .b-prices__ph-cols
+        .b-prices__ph-filter
+        .b-prices__ph-table
+  
+    include ../../components/filter/2-rooms
+  
+  hr.i-size-L
+  

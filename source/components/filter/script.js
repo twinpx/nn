@@ -464,50 +464,71 @@
       
       function slideFilter() {
         
-        var array = [];
-        
-        if ( self.$house.length ) {
-          array.push([ 'house', 'HouseCount' ]);
-        }
-        
-        if ( self.$section.length ) {
-          array.push([ 'section', 'SectionNumber' ]);
-        }
-        
-        if ( self.$floors.length ) {
-          array.push([ 'floors', 'FloorNumber' ]);
-        }
-        
-        if ( self.$rooms.length ) {
-          array.push([ 'rooms', 'FlatRoomsCount' ]);
-        }
-        
-        if ( self.$square.length ) {
-          array.push([ 'square', 'TotalArea' ]);
-        }
-        
-        if ( self.$land.length ) {
-          array.push([ 'land', 'LandArea' ]);
-        }
-        
-        if ( self.$price.length ) {
-          array.push([ 'price', 'Price' ]);
-        }
-        
-        self.flatsArrayFiltered = self.flatsArray.filter( function( element ) {
+        if ( self.$tbody.data( 'filter' ) && typeof self.$tbody.data( 'filter' ) === 'object' ) {
           
-          var flag = 1;
-          
-          array.forEach( function( elem ) {
-            if ((element[ elem[1]] < self[ '$' + elem[0]].slider( "values", 0 ) || element[ elem[1]] > self[ '$' + elem[0]].slider( "values", 1 ))) {
-              flag *= 0;
+          self.flatsArrayFiltered = self.flatsArray.filter( function( element ) {
+            
+            var flag = 1;
+            
+            for ( var key in self.$tbody.data( 'filter' )) {
+              if ( String( element[ key ]) !== String( self.$tbody.data( 'filter' )[ key ])) {
+                flag *= 0;
+              }
+            }
+            
+            if ( flag ) {
+              return true;
             }
           });
           
-          if ( flag ) {
-            return true;
+        } else {
+          
+          var array = [];
+          
+          if ( self.$house.length ) {
+            array.push([ 'house', 'HouseCount' ]);
           }
-        });
+          
+          if ( self.$section.length ) {
+            array.push([ 'section', 'SectionNumber' ]);
+          }
+          
+          if ( self.$floors.length ) {
+            array.push([ 'floors', 'FloorNumber' ]);
+          }
+          
+          if ( self.$rooms.length ) {
+            array.push([ 'rooms', 'FlatRoomsCount' ]);
+          }
+          
+          if ( self.$square.length ) {
+            array.push([ 'square', 'TotalArea' ]);
+          }
+          
+          if ( self.$land.length ) {
+            array.push([ 'land', 'LandArea' ]);
+          }
+          
+          if ( self.$price.length ) {
+            array.push([ 'price', 'Price' ]);
+          }
+          
+          self.flatsArrayFiltered = self.flatsArray.filter( function( element ) {
+            
+            var flag = 1;
+            
+            array.forEach( function( elem ) {
+              if ((element[ elem[1]] < self[ '$' + elem[0]].slider( "values", 0 ) || element[ elem[1]] > self[ '$' + elem[0]].slider( "values", 1 ))) {
+                flag *= 0;
+              }
+            });
+            
+            if ( flag ) {
+              return true;
+            }
+          });
+        
+        }
         
         renderResult();
         setCookie();

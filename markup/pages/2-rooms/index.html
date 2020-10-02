@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Links tree | NN</title>
+    <title>2-комнатные | NN</title>
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -16,7 +16,7 @@
     <script src="/template/script.js"></script>
   </head>
   <body>
-    <link href="/template/placeholders/main.css" rel="stylesheet">
+    <link href="/template/placeholders/prices.css" rel="stylesheet">
     <header class="b-header">
       <div class="b-header__ph">
         <div class="b-header__ph-container container">
@@ -42,29 +42,41 @@
       </div>
     </header>
     <div class="container">
-      <hr class="i-size-XL">
-      <h1>NN</h1>
-      <ul>
-        <li><a href="/pages/main/">Главная</a></li>
-        <li><a href="/pages/galleries/">Галерея с белыми и синими стрелками</a></li>
-        <li><a href="/pages/offers/">Типы предложений</a></li>
-        <li><a href="/pages/prices/">Цены</a></li>
-        <li><a href="/pages/detail/">Детальная страница</a></li>
-        <li><a href="/pages/form/">Форма</a></li>
-        <li><a href="/pages/plan/">Генплан</a></li>
-        <li><a href="/pages/visual/">Визуальный выборщик</a></li>
-        <li><a href="/pages/actions/">Акции</a></li>
-        <li><a href="/pages/actions/actions-detail/">Акция детально</a></li>
-        <li><a href="/pages/news/">Новости</a></li>
-        <li><a href="/pages/news/news-detail/">Новость детально</a></li>
-        <li><a href="/pages/gallery/">Галерея</a></li>
-        <li><a href="/pages/docs/">Документы</a></li>
-        <li><a href="/pages/hypothec/">Ипотека</a></li>
-        <li><a href="/pages/2-rooms/">2-комнатные</a></li>
-        <li><a href="/subdomains/taunkhausy/">taunkhausy.n-nk.ru</a></li>
-      </ul>
-      <hr class="i-size-XL">
+      <hr>
+      <h1>Двухкомнатные квартиры</h1>
     </div>
+    <section class="container" id="prices">
+      <div class="b-prices__ph">
+        <div class="b-prices__ph-cols">
+          <div class="b-prices__ph-filter"></div>
+          <div class="b-prices__ph-table"></div>
+        </div>
+      </div>
+      <!-- start /components/filter/-->
+      <link rel="stylesheet" href="/components/filter/style.css">
+      <script src="/components/filter/script.js"></script>
+      <div class="b-filter">
+        <div class="b-filter-item">
+          <table class="b-filter-table">
+            <thead>
+              <tr>
+                <th>№ Дома</th>
+                <th>Секция</th>
+                <th>Этаж</th>
+                <th>Номер квартиры</th>
+                <th>Комнат</th>
+                <th>Площадь</th>
+                <th>Цена</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody data-orderlink="/form/?id=" data-json="/components/filter/filter-data-highrise.json" data-method="GET" data-filter="{&quot;FlatRoomsCount&quot;:2, &quot;HouseCount&quot;:2}"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- end /components/filter/-->
+    </section>
+    <hr class="i-size-L">
     <footer class="b-footer">
       <div class="container">
         <div class="b-footer__logo"><img src="/template/images/logo-nn.svg" alt="Ново-Никольское"></div>
