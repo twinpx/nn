@@ -458,3 +458,60 @@
             width 100%
             margin-bottom 15px
             text-align center
+            
+.b-filter-item
+
+  &:not([ data-tab ])
+  
+    table
+    
+      tbody
+        
+        tr
+          
+          @media( min-width 901px )
+            display table-row
+            height 65px
+            padding-top 0
+          
+          @media( max-width 900px )
+            display block
+            height auto
+            padding-top 15px
+    
+      th
+        width 11%
+          
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8)
+          width auto
+        
+        @media( max-width 900px )
+          display inline-block
+          width 20%
+          
+          &:nth-child(6),
+          &:nth-child(7),
+          &:nth-child(8)
+            display none
+            
+      td
+        
+        @media( max-width 900px )
+          display inline-block
+          width 20%
+            
+          &:nth-child(6)
+            padding-top 15px
+            
+          &:nth-child(7)
+            font-size 14pt
+            
+          &:nth-child(6),
+          &:nth-child(7),
+          &:nth-child(8)
+            display block
+            width 100%
+            margin-bottom 15px
+            text-align center
