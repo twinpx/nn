@@ -185,8 +185,17 @@
 
 .b-sidenav-phone
   color $phone-color
-  
 
+.b-sidenav__social
+
+  a
+    display inline-block
+    width 32px
+    height 32px
+    margin-right 20px
+    background-repeat no-repeat
+    background-position center
+    background-size contain
 
 .b-footer
   display block
@@ -214,13 +223,27 @@
       
   .col
     
-    a
+    a,
+    span
       display block
       font-size 16px
       font-family $font-roboto
       font-weight 300
       color #fff
+
+    a
       padding-bottom 5px
+
+    .b-footer__social
+
+      a
+        display inline-block
+        width 32px
+        height 32px
+        margin-right 20px
+        background-repeat no-repeat
+        background-position center
+        background-size contain
       
   menu
     margin 0

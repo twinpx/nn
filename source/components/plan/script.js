@@ -54,6 +54,7 @@
             clusterers = {},
             placemarks = {};
             
+        //infrastructure
         planYmap.events.add( 'boundschange', function(e) {
           if ( e.get( 'newZoom' ) !== e.get( 'oldZoom' )) {
             showHideInfrastructure();
