@@ -1,125 +1,113 @@
-module.exports = function( grunt ) {
-  
+module.exports = function (grunt) {
   grunt.initConfig({
-    
     source: 'source/',
     dest: 'dest/',
     temp: 'temp/',
     prod: 'markup/',
-    
+
     pug: {
       dev: {
         options: {
-          pretty: true
+          pretty: true,
         },
         files: [
           {
-            expand: true, 
+            expand: true,
             cwd: './<%= source%>',
-            src: [
-              '**/*.pug',
-              '!layouts/**/*.pug',
-              '!modules/**/*.pug'
-            ],
+            src: ['**/*.pug', '!layouts/**/*.pug', '!modules/**/*.pug'],
             dest: '<%= dest%>',
             ext: '.html',
-            extDot: 'first'
-          }
-        ]
+            extDot: 'first',
+          },
+        ],
       },
-      
+
       prod: {
         options: {
-          pretty: true
+          pretty: true,
         },
         files: [
           {
-            expand: true, 
+            expand: true,
             cwd: './<%= source%>',
-            src: [
-              '**/*.pug',
-              '!layouts/**/*.pug',
-              '!modules/**/*.pug'
-            ],
+            src: ['**/*.pug', '!layouts/**/*.pug', '!modules/**/*.pug'],
             dest: '<%= temp%>',
             ext: '.html',
-            extDot: 'first'
-          }
-        ]
-      }
+            extDot: 'first',
+          },
+        ],
+      },
     },
-    
+
     stylus: {
       options: {
         compress: false,
         urlfunc: {
           name: 'embedurl',
-          limit: 30000
-        }
+          limit: 30000,
+        },
       },
       template: {
         files: [
           {
             expand: true,
             cwd: '<%= source%>styl/placeholders/',
-            src: [ '*.styl' ],
+            src: ['*.styl'],
             dest: '<%= dest%>template/placeholders/',
             extDot: 'first',
-            ext: '.css'
+            ext: '.css',
           },
           {
-            '<%= dest%>template/template_styles.css':
-              [
-                '<%= source%>styl/template_styles.styl',
-                '<%= source%>modules/**/*.styl'
-              ]
-          }
-        ]
+            '<%= dest%>template/template_styles.css': [
+              '<%= source%>styl/template_styles.styl',
+              '<%= source%>modules/**/*.styl',
+            ],
+          },
+        ],
       },
       components: {
         files: [
           {
             expand: true,
             cwd: '<%= source%>components/',
-            src: [ '**/*.styl' ],
+            src: ['**/*.styl'],
             dest: '<%= dest%>components/',
             extDot: 'first',
-            ext: '.css'
-          }
-        ]
+            ext: '.css',
+          },
+        ],
       },
       prod: {
         options: {
-          compress: true
+          compress: true,
         },
         files: [
           {
             expand: true,
             cwd: '<%= source%>components/',
-            src: [ '**/*.styl' ],
+            src: ['**/*.styl'],
             dest: '<%= temp %>components/',
             extDot: 'first',
-            ext: '.css'
+            ext: '.css',
           },
           {
             expand: true,
             cwd: '<%= source%>styl/placeholders/',
-            src: [ '*.styl' ],
+            src: ['*.styl'],
             dest: '<%= temp %>template/placeholders/',
             extDot: 'first',
-            ext: '.css'
+            ext: '.css',
           },
           {
-            '<%= temp %>template/template_styles.css':
-              [
-                '<%= source%>styl/template_styles.styl',
-                '<%= source%>modules/**/*.styl'
-              ]
-          }
-        ]
-      }
+            '<%= temp %>template/template_styles.css': [
+              '<%= source%>styl/template_styles.styl',
+              '<%= source%>modules/**/*.styl',
+            ],
+          },
+        ],
+      },
     },
-    
+
     concat: {
       js: {
         files: {
@@ -128,24 +116,24 @@ module.exports = function( grunt ) {
             '<%= source %>js/main.js',
             '<%= source %>modules/**/*.js',
             '<%= source %>js/src/bottom.js',
-          ]
-        }
+          ],
+        },
       },
       pluginsJS: {
         files: {
           '<%= source %>js/script.js': [
             '<%= source %>js/script.js',
             '<%= source %>js/src/plugins/**/*.js',
-          ]
-        }
+          ],
+        },
       },
       pluginsCSS: {
         files: {
           '<%= dest %>template/template_styles.css': [
             '<%= dest %>template/template_styles.css',
-            '<%= source %>js/src/plugins/**/*.css'
-          ]
-        }
+            '<%= source %>js/src/plugins/**/*.css',
+          ],
+        },
       },
       prod: {
         files: {
@@ -154,27 +142,27 @@ module.exports = function( grunt ) {
             '<%= source %>js/main.js',
             '<%= source %>modules/**/*.js',
             '<%= source %>js/src/bottom.js',
-          ]
-        }
+          ],
+        },
       },
       prodPluginsJS: {
         files: {
           '<%= temp %>template/script.js': [
             '<%= temp %>template/script.js',
             '<%= source %>js/src/plugins/**/*.js',
-          ]
-        }
+          ],
+        },
       },
       prodPluginsCSS: {
         files: {
           '<%= temp %>template/template_styles.css': [
             '<%= temp %>template/template_styles.css',
-            '<%= source %>js/src/plugins/**/*.css'
-          ]
-        }
-      }
+            '<%= source %>js/src/plugins/**/*.css',
+          ],
+        },
+      },
     },
-    
+
     jshint: {
       dev: {
         options: {
@@ -185,15 +173,12 @@ module.exports = function( grunt ) {
           newcap: true,
           globals: {
             jQuery: true,
-            console: true
-          }
+            console: true,
+          },
         },
         files: {
-          src: [
-            '<%= source %>js/script.js',
-            '<%= source %>components/**/*.js'
-          ]
-        }
+          src: ['<%= source %>js/script.js', '<%= source %>components/**/*.js'],
+        },
       },
       prod: {
         options: {
@@ -204,15 +189,15 @@ module.exports = function( grunt ) {
           newcap: true,
           globals: {
             jQuery: true,
-            console: true
-          }
+            console: true,
+          },
         },
         files: {
           src: [
             '<%= temp %>template/script.js',
-            '<%= temp %>components/**/*.js'
-          ]
-        }
+            '<%= temp %>components/**/*.js',
+          ],
+        },
       },
       libs: {
         options: {
@@ -224,36 +209,34 @@ module.exports = function( grunt ) {
           trailingcomma: false,
           globals: {
             jQuery: true,
-            console: true
-          }
+            console: true,
+          },
         },
         files: {
-          src: [
-            '<%= source %>libs-test/*.js'
-          ]
-        }
-      }
+          src: ['<%= source %>libs-test/*.js'],
+        },
+      },
     },
-    
+
     uglify: {
       devTemplate: {
         options: {
           mangle: false,
           compress: false,
           beautify: true,
-          preserveComments: 'some'
+          preserveComments: 'some',
         },
         files: [
           {
-            '<%= dest%>template/script.js': '<%= source %>js/script.js'
-          }
-        ]
+            '<%= dest%>template/script.js': '<%= source %>js/script.js',
+          },
+        ],
       },
       devComponents: {
         options: {
           mangle: false,
           compress: false,
-          beautify: true
+          beautify: true,
         },
         files: [
           {
@@ -262,26 +245,26 @@ module.exports = function( grunt ) {
             src: '**/*.js',
             dest: '<%= dest%>components/',
             ext: '.js',
-            extDot: 'first'
-          }
-        ]
+            extDot: 'first',
+          },
+        ],
       },
       prodTemplate: {
         options: {
           mangle: true,
           compress: {},
-          preserveComments: 'some'
+          preserveComments: 'some',
         },
         files: [
           {
-            '<%= temp %>template/script.js': '<%= temp %>template/script.js'
-          }
-        ]
+            '<%= temp %>template/script.js': '<%= temp %>template/script.js',
+          },
+        ],
       },
       prodComponents: {
         options: {
           mangle: true,
-          compress: {}
+          compress: {},
         },
         files: [
           {
@@ -290,155 +273,159 @@ module.exports = function( grunt ) {
             src: '**/*.js',
             dest: '<%= temp %>components/',
             ext: '.js',
-            extDot: 'first'
-          }
-        ]
-      }
+            extDot: 'first',
+          },
+        ],
+      },
     },
-    
+
     clean: {
       js: {
-        src: [ '<%= source %>js/script.js' ]
+        src: ['<%= source %>js/script.js'],
       },
       images: {
-        src: [ '<%= dest %>template/images/' ]
+        src: ['<%= dest %>template/images/'],
       },
       temp: {
-        src: [ '<%= temp %>' ]
-      }
+        src: ['<%= temp %>'],
+      },
     },
-    
+
     copy: {
       images: {
         files: [
           {
             expand: true,
             cwd: '<%= source %>images/',
-            src: [ '**/*.*' ],
-            dest: '<%= dest %>template/images/'
-          }
-        ]
+            src: ['**/*.*'],
+            dest: '<%= dest %>template/images/',
+          },
+        ],
       },
       upload: {
         files: [
           {
             expand: true,
             cwd: '<%= source %>upload/',
-            src: [ '**/*.*' ],
-            dest: '<%= dest %>upload/'
-          }
-        ]
+            src: ['**/*.*'],
+            dest: '<%= dest %>upload/',
+          },
+        ],
       },
       tempImages: {
         files: [
           {
             expand: true,
             cwd: '<%= source %>images/',
-            src: [ '**/*.*' ],
-            dest: '<%= temp %>template/images/'
-          }
-        ]
+            src: ['**/*.*'],
+            dest: '<%= temp %>template/images/',
+          },
+        ],
       },
       tempUpload: {
         files: [
           {
             expand: true,
             cwd: '<%= source %>upload/',
-            src: [ '**/*.*' ],
-            dest: '<%= temp %>upload/'
-          }
-        ]
+            src: ['**/*.*'],
+            dest: '<%= temp %>upload/',
+          },
+        ],
       },
       prodComponents: {
         files: [
           {
             expand: true,
             cwd: '<%= source %>components/',
-            src: [ '**/*.js' ],
-            dest: '<%= temp %>components/'
-          }
-        ]
+            src: ['**/*.js'],
+            dest: '<%= temp %>components/',
+          },
+        ],
       },
       prod: {
         files: [
           {
             expand: true,
             cwd: '<%= temp %>',
-            src: [ '**/*.*' ],
-            dest: '<%= prod %>'
-          }
-        ]
-      }
+            src: ['**/*.*'],
+            dest: '<%= prod %>',
+          },
+        ],
+      },
     },
-    
+
     watch: {
       livereload: {
         options: {
-          livereload: true
+          livereload: true,
         },
-        files: [ '**/*' ]
+        files: ['**/*'],
       },
-      
+
       html: {
         files: '**/*.pug',
-        tasks: 'pug:dev'
+        tasks: 'pug:dev',
       },
-      
+
       css: {
         files: '<%= source %>**/*.styl',
-        tasks: 'css'
+        tasks: 'css',
       },
-      
+
       js: {
-        files: [
-          '<%= source %>**/*.js',
-          '!<%= source %>js/script.js'
-        ],
-        tasks: [ 'js' ]
+        files: ['<%= source %>**/*.js', '!<%= source %>js/script.js'],
+        tasks: ['js'],
       },
-      
+
       img: {
         files: '<%= source %>images/**/*.*',
-        tasks: [
-          'copy:images'
-        ]
-      }
+        tasks: ['copy:images'],
+      },
     },
-    
+
     connect: {
       server: {
         options: {
           port: 3000,
-          base: '<%= dest%>'
-        }
-      }
-    }
-    
+          base: '<%= dest%>',
+        },
+      },
+    },
   });
-  
-  grunt.loadNpmTasks( 'grunt-contrib-connect' );
-  grunt.loadNpmTasks( 'grunt-contrib-watch' );
-  grunt.loadNpmTasks( 'grunt-contrib-stylus' );
-  grunt.loadNpmTasks( 'grunt-contrib-pug' );
-  grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-  grunt.loadNpmTasks( 'grunt-contrib-copy' );
-  grunt.loadNpmTasks( 'grunt-contrib-concat' );
-  grunt.loadNpmTasks( 'grunt-contrib-clean' );
-  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-  
-  grunt.registerTask( 'css', [ 'stylus:template', 'stylus:components', 'concat:pluginsCSS' ] );
-  grunt.registerTask( 'js', [ 'concat:js', 'jshint:dev', 'concat:pluginsJS', 'uglify:devTemplate', 'uglify:devComponents', 'clean:js' ] );
-  grunt.registerTask( 'html', [ 'copy:images', 'pug:dev' ] );
-  grunt.registerTask( 'default', [ 'connect', 'css', 'js', 'html', 'watch' ] );
-  
-  grunt.registerTask( 'prod', [
+
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.loadNpmTasks('grunt-contrib-pug');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  grunt.registerTask('css', [
+    'stylus:template',
+    'stylus:components',
+    'concat:pluginsCSS',
+  ]);
+  grunt.registerTask('js', [
+    'concat:js',
+    /*'jshint:dev',*/ 'concat:pluginsJS',
+    'uglify:devTemplate',
+    'uglify:devComponents',
+    'clean:js',
+  ]);
+  grunt.registerTask('html', ['copy:images', 'pug:dev']);
+  grunt.registerTask('default', ['connect', 'css', 'js', 'html', 'watch']);
+
+  grunt.registerTask('prod', [
     'stylus:prod',
     'concat:prodPluginsCSS',
     'pug:prod',
     //js
     'concat:prod',
     'copy:prodComponents',
-    'jshint:prod',
+    //'jshint:prod',
     'uglify:prodTemplate',
     'concat:prodPluginsJS',
     'uglify:prodComponents',
@@ -448,7 +435,6 @@ module.exports = function( grunt ) {
     'copy:tempUpload',
     //copy
     'copy:prod',
-    'clean:temp'
+    'clean:temp',
   ]);
-  
 };
