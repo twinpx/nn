@@ -1,0 +1,143 @@
+extends ../../layouts/main
+
+block title
+  title Квартиры с отделкой | NN
+  
+block ph-styles
+  link( href="/template/placeholders/kvartiry-s-otdelkoy.css" rel="stylesheet" )
+
+block content
+    
+  section#gallery.container
+  
+    .b-gallery__ph
+      .b-gallery__ph-container
+    
+    include ../../components/top-gallery/template
+
+  section#object.container
+
+    include ../../modules/heading/description
+
+    .row
+    
+      .col.m4.s12
+        img( src="/upload/buildings/1.jpg" style="width: 100%; vertical-align: top;" ) 
+
+      hr.show-on-small.hide-on-med-and-up.clearfix
+    
+      .col.m4.s12
+        img( src="/upload/buildings/2.jpg" style="width: 100%; vertical-align: top;" ) 
+
+      hr.show-on-small.hide-on-med-and-up.clearfix
+    
+      .col.m4.s12
+        img( src="/upload/buildings/3.jpg" style="width: 100%; vertical-align: top;" ) 
+
+    hr.i-line.i-size-XL
+
+    p( style="text-align: justify;" )
+      i Вы цените свое время и привыкли разумно распоряжаться своими финансами? Вы бы предпочли переехать в новый дом как можно скорее? Вы привыкли доверять профессионалам своего дела?
+    p 
+      b Мы нашли для вас идеальное решение!
+
+    hr.i-size-S
+    
+    div( style="background-color: #1378c7; color: white; padding: 1em; text-align: center;") Переезд без лишних забот:<br>квартиры с отделкой в «Ново-Никольском»
+
+    hr.i-size-ML
+
+    .row
+
+      .col.m4.s12.push-m8
+        img( src="https://n-nk.ru/upload/medialibrary/3c1/3c12cc9ea91654a4b6a621f0396ad6b9.jpg" alt="Гостиная" style="width: 100%; vertical-align: top;")
+
+      hr.show-on-small.hide-on-med-and-up.clearfix
+
+      .col.m8.s12.pull-m4
+        p( style="text-align: justify;" ) Теперь в «Ново-Никольском» можно приобрести квартиры с отделкой – будущим жителям комплекса не придется тратить время и силы на организацию ремонта. Достаточно расставить мебель, добавить декор и все готово к переезду.
+        p( style="text-align: justify;" ) Дизайн квартир в «Ново-Никольском» выполнен в нейтральных светлых тонах – это фон вашей будущей жизни, который подойдет практически к любой мебели, текстилю, бытовой технике.
+        p( style="text-align: justify;" ) Важнейшие принципы застройщика – только современные, качественные и прочные материалы и строгий контроль за ходом ремонтных работ.
+
+    hr.i-line.i-size-XL
+
+    .row
+      .col.s12.m4 
+        img( src="https://n-nk.ru/upload/medialibrary/85c/85c8173528537bd7db6fb48ea7a83f46.jpg" alt="" style="width: 100%; vertical-align: top;")
+        
+      hr.show-on-small.hide-on-med-and-up.clearfix
+
+      .col.s12.m8 
+        p( style="text-align: justify;" ) Для отделки полов применяется ламинат бренда Artens «Karuco» 33 класса толщиной 8 мм – такое покрытие используется в публичных помещениях с большой проходимостью из-за его особо прочного качества.
+
+    hr.i-line.i-size-XL
+
+    p( style="text-align: justify;" ) Стены оклеиваются флизелиновыми обоями под подкраску также с повышенными требованиями к прочности. Также используется керамическая плитка проверенного временем и миллионами покупателей бренда Kerama Marazzi.
+    p( style="text-align: justify;" ) Санузлы в квартирах с отделкой оборудованы современной сантехникой – красивой и качественной. Установлены унитазы, ванны, раковины и зеркала. Смесители – от самого надежного немецкого производителя компании Grohe. В каждой ванной комнате имеются выводы для подключения  стиральной машины.
+    p( style="text-align: justify;" ) Потолки – натяжные, с карнизами и встроенными светильниками.
+
+    hr.i-line.i-size-XL
+
+    .row
+
+      .col.s12.m4.push-m8
+        img( src="https://n-nk.ru/upload/medialibrary/d3e/d3e905b69d279d7bee4d83af3655ed85.jpg" alt="" style="width: 100%; vertical-align: top;")
+        
+      hr.show-on-small.hide-on-med-and-up.clearfix
+
+      .col.s12.m8.pull-m4
+        p( style="text-align: justify;" ) В каждую квартиру устанавливается металлическая входная дверь толщиной 960 мм. С внешней стороны цвет двери – «черный муар», с внутренней – «светлый беж», что гармонирует с общей светлой цветовой гаммой в квартире. 
+
+    hr.i-line.i-size-XL
+
+    img( src="https://n-nk.ru/upload/medialibrary/cee/cee4002e317d698ee3110aadd7c09134.jpg" alt="" style="width: 100%; vertical-align: top;")
+
+    hr.i-line.i-size-XL
+
+    .text-center 
+      a.b-button( href="" ) Заказать консультацию
+
+    hr.i-line.i-size-XL
+
+    p( style="text-align: justify; font-size: 12pt; color: #959595;" ) Не является публичной офертой. Визуализации и планировки объекта являются ориентировочными. Мебель и предметы интерьера в квартиры с отделкой не входят и представлены на изображениях в качестве примера оформления. Застройщик вправе вносить изменения в проект в соответствии с действующим законодательством.
+
+  section#planText.container
+  
+    include ../../modules/heading/how-to-get-to
+    
+    .b-plan-text-ph
+      .b-plan-text-ph__col
+        div
+      .b-plan-text-ph__text
+        div
+        div
+        div
+        div
+        div
+    
+    .b-plan-text
+      .row
+
+        .col.m6.s12
+          
+          include ../../modules/ymap/saleoffice
+          
+        hr.show-on-small.hide-on-med-and-up.clearfix
+        
+        .col.m6.s12
+          
+          .row
+            
+            .col.xl6.l12
+              a.b-button Заказать обратный звонок
+              
+            hr.hide-on-xlarge-only.clearfix
+              
+            .col.xl6.l12
+              .b-plan-text__tel +7 (495) 162-61-40
+  
+  hr.i-size-L
+  
+  section#buildings.container
+      
+    include ../../modules/buildings/include

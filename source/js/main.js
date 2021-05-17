@@ -1,25 +1,31 @@
-$( '.b-back-link' ).click( function(e) {
+if (window.matchMedia('(min-width: 1024px)').matches) {
+  $('.modal').modal();
+}
+
+$('.b-back-link').click(function (e) {
   e.preventDefault();
   window.history.back();
 });
 
-if ( $( '.b-filter' ).length ) {
-  $( '.b-filter .col.xl9' ).niceScroll();
+if ($('.b-filter').length) {
+  $('.b-filter .col.xl9').niceScroll();
 }
 
-$( '.sidenav' ).sidenav({
-  edge: 'right'
+$('.sidenav').sidenav({
+  edge: 'right',
 });
 
-$( '.b-sidenav-close' ).click( function(e) {
+$('.b-sidenav-close').click(function (e) {
   e.preventDefault();
-  $( '.sidenav' ).sidenav( 'close' );
+  $('.sidenav').sidenav('close');
 });
 
 //placeholder
-setTimeout( function() {
-  $( '.b-header, h1, .b-breadcrumbs, #gallery, #planText, #buildings, .b-heading, #detail, #plan, #prices, #visual, #actions, #actionsDetail, #news, #newsDetail, #bigGallery, #docs, #hypothec, #flat-choice' ).addClass( 'i-ph-animated' );
-}, 500 );
+setTimeout(function () {
+  $(
+    '.b-header, h1, .b-breadcrumbs, #gallery, #planText, #buildings, .b-heading, #detail, #plan, #prices, #visual, #actions, #actionsDetail, #news, #newsDetail, #bigGallery, #docs, #hypothec, #flat-choice'
+  ).addClass('i-ph-animated');
+}, 500);
 
 //scroll effects
 /*$( window ).scroll( function() {

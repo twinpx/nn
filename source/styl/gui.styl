@@ -17,8 +17,8 @@
 body
   background #fff
   color $text-color
-  font-family $font-roboto
-  font-size 18px
+  font-family $font-serif
+  font-size 16pt
   text-align justify
   
 a
@@ -27,6 +27,10 @@ a
   
   &:hover
     opacity .3
+
+p
+  margin-top 20px
+  margin-bottom 20px
     
 h1  
   overflow visible
@@ -60,6 +64,14 @@ hr
   border none
   margin 0
   padding 10px 0
+
+  &.i-line
+    border-top 1px solid $placeholder-color
+    padding 0 !important
+    margin 9px 0 10px 0
+
+    &.i-size-XL
+      margin 29px 0 30px
   
   //5px
   &.i-size-XS
@@ -76,6 +88,10 @@ hr
   //20px
   &
     padding 10px 0
+    
+  //30px
+  &.i-size-ML
+    padding 15px 0
     
   //40px
   &.i-size-L
@@ -225,8 +241,8 @@ blockquote
   background #255aa7
   padding 40px
   margin 0 -40px
-  font-family $font-roboto
-  font-size 18px
+  font-family $font-serif
+  font-size 16pt
   line-height 1.5
   border 0
   color #fff
@@ -286,3 +302,18 @@ blockquote
   
   @media( max-width 600px )
     display block
+
+#object
+
+  .row
+    padding-top 0
+    padding-bottom 0
+
+  img
+    vertical-align top
+
+  p:first-child
+    margin-top 0
+
+  p:last-child
+    margin-bottom 0
