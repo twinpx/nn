@@ -1,5 +1,5 @@
 
-<div class="b-tabs__tab b-filter-item" data-tab="townhouse">
+<div class="b-tabs__tab b-filter-item i-active" data-tab="apartment">
   <div class="row">
     <div class="col xl3 l4 m5 s12">
       <div class="b-filter-btn"><span class="i-show">Использовать фильтр</span><span>Свернуть фильтр</span><i style="background-image: url( '/upload/icons/filter.svg' );"></i></div>
@@ -11,6 +11,24 @@
         <label>№ Дома</label>
         <div class="b-filter__wrapper">
           <div class="b-filter-house"></div>
+        </div>
+        <p></p>
+        <div class="b-filter__input"><span>от</span> 
+          <input class="b-filter-section-input-min" type="text" value=""/> <span>до</span> 
+          <input class="b-filter-section-input-max" type="text" value=""/>
+        </div>
+        <label>Секция</label>
+        <div class="b-filter__wrapper">
+          <div class="b-filter-section"></div>
+        </div>
+        <p></p>
+        <div class="b-filter__input"><span>от</span> 
+          <input class="b-filter-floors-input-min" type="text" value=""/> <span>до</span> 
+          <input class="b-filter-floors-input-max" type="text" value=""/>
+        </div>
+        <label>Этаж</label>
+        <div class="b-filter__wrapper">
+          <div class="b-filter-floors"></div>
         </div>
         <p></p>
         <div class="b-filter__input"><span>от</span> 
@@ -31,15 +49,6 @@
           <div class="b-filter-square"></div>
         </div>
         <p></p>
-        <div class="b-filter__input"><span>от</span> 
-          <input class="b-filter-land-input-min" type="text" value=""/> <span>до</span> 
-          <input class="b-filter-land-input-max" type="text" value=""/>
-        </div>
-        <label>Площадь з.у.(сот.)</label>
-        <div class="b-filter__wrapper">
-          <div class="b-filter-land"></div>
-        </div>
-        <p></p>
         <label>Стоимость</label>
         <div class="b-filter-price-value"></div>
         <div class="b-filter__wrapper">
@@ -55,16 +64,17 @@
         <thead>
           <tr>
             <th>№ Дома</th>
+            <th>Секция</th>
+            <th>Этаж</th>
             <th>Номер квартиры</th>
             <th>Комнат</th>
             <th>Площадь</th>
-            <th>Площадь з.у.</th>
             <th>Цена</th>
             <th></th>
             <th></th>
           </tr>
         </thead>
-        <tbody data-orderlink="/form/?id=" data-json="/components/filter/filter-data-townhouse.json" data-method="GET"></tbody>
+        <tbody data-orderlink="/form/?id=" data-json="/components/filter/filter-data-apartment.json" data-method="GET"></tbody>
       </table>
     </div>
   </div>

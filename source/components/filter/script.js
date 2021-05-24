@@ -750,7 +750,8 @@
             rooms,
             square,
             land,
-            price;
+            price,
+            finished;
           var end =
             '<td><a href="' +
             self.$tbody.data('orderlink') +
@@ -821,6 +822,16 @@
               ' руб.</td>';
           }
 
+          if (typeof element.Finished !== 'undefined') {
+            tr += ' data-finished="' + element.Finished + '"';
+            if (element.Finished === 'Y') {
+              finished =
+                '<td class="b-filter-table__finished"><img src="/template/images/finished.svg" title="Отделка завершена" alt="" width="30" height="30"></td>';
+            } else {
+              finished = '<td></td>';
+            }
+          }
+
           tr +=
             ' data-layoutphoto="' +
             element.LayoutPhoto +
@@ -840,6 +851,7 @@
             square +
             land +
             price +
+            finished +
             end;
         });
 
@@ -884,9 +896,8 @@
 
     function parseQuery(queryString) {
       var query = {};
-      var pairs = (queryString[0] === '?'
-        ? queryString.substr(1)
-        : queryString
+      var pairs = (
+        queryString[0] === '?' ? queryString.substr(1) : queryString
       ).split('&');
       for (var i = 0; i < pairs.length; i++) {
         var pair = pairs[i].split('=');
