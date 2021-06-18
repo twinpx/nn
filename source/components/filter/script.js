@@ -760,39 +760,42 @@
 
           if (typeof element.HouseCount !== 'undefined') {
             tr += ' data-housecount="' + element.HouseCount + '"';
-            house = '<td>' + element.HouseCount + '</td>';
+            house = '<td><span>Дом</span> ' + element.HouseCount + '</td>';
           }
 
           if (typeof element.SectionNumber !== 'undefined') {
             tr += ' data-sectionnumber="' + element.SectionNumber + '"';
-            section = '<td>' + element.SectionNumber + '</td>';
+            section =
+              '<td><span>Секция</span> ' + element.SectionNumber + '</td>';
           }
 
           if (typeof element.CorpCount !== 'undefined') {
             tr += ' data-corpnumber="' + element.CorpCount + '"';
-            corp = '<td>' + element.CorpCount + '</td>';
+            corp = '<td><span>Корпус</span> ' + element.CorpCount + '</td>';
           }
 
           if (typeof element.FloorNumber !== 'undefined') {
             tr += ' data-floornumber="' + element.FloorNumber + '"';
-            floor = '<td>' + element.FloorNumber + '</td>';
+            floor = '<td><span>Этаж</span> ' + element.FloorNumber + '</td>';
             floorduplex = '';
           }
 
           if (typeof element.FlatNum !== 'undefined') {
             tr += ' data-flatnum="' + element.FlatNum + '"';
-            flat = '<td>' + element.FlatNum + '</td>';
+            flat = '<td><span>Квартира</span> ' + element.FlatNum + '</td>';
           }
 
           if (typeof element.FloorsDuplex !== 'undefined') {
             tr += ' data-floorsduplex="' + element.FloorsDuplex + '"';
-            floorduplex = '<td>' + element.FloorsDuplex + '</td>';
+            floorduplex =
+              '<td><span>Этажей</span> ' + element.FloorsDuplex + '</td>';
             floor = '';
           }
 
           if (typeof element.FlatRoomsCount !== 'undefined') {
             tr += ' data-flatroomscount="' + element.FlatRoomsCount + '"';
-            rooms = '<td>' + element.FlatRoomsCount + '</td>';
+            rooms =
+              '<td><span>Комнат</span> ' + element.FlatRoomsCount + '</td>';
           }
 
           if (typeof element.TotalArea !== 'undefined') {

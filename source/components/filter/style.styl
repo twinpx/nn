@@ -217,6 +217,12 @@
       text-align center
       font-size 12pt
       line-height 1.1
+
+      span
+        font-size 8pt
+
+        @media( min-width 768px )
+          display none
       
     small
       font-size 7pt
@@ -234,7 +240,8 @@
 .b-filter-item
 
   &[ data-tab=highrise ],
-  &[ data-tab=lowrise ] 
+  &[ data-tab=lowrise ],
+  &[ data-tab=apartament ] 
   
     table
     
@@ -243,7 +250,8 @@
           
         &:nth-child(6),
         &:nth-child(7),
-        &:nth-child(8)
+        &:nth-child(8),
+        &:nth-child(9)
           width auto
         
         @media( max-width 1200px )
@@ -252,7 +260,8 @@
           
           &:nth-child(6),
           &:nth-child(7),
-          &:nth-child(8)
+          &:nth-child(8),
+          &:nth-child(9)
             display none
             
       td
@@ -269,7 +278,8 @@
             
           &:nth-child(6),
           &:nth-child(7),
-          &:nth-child(8)
+          &:nth-child(8),
+          &:nth-child(9)
             display block
             width 100%
             margin-bottom 15px
@@ -285,7 +295,9 @@
           
         &:nth-child(4),
         &:nth-child(5),
-        &:nth-child(6)
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8)
           width auto
         
         @media( max-width 1200px )
@@ -301,7 +313,8 @@
           
           &:nth-child(5),
           &:nth-child(6),
-          &:nth-child(7)
+          &:nth-child(7),
+          &:nth-child(8)
             display none
             
       td
@@ -323,7 +336,8 @@
             
           &:nth-child(5),
           &:nth-child(6),
-          &:nth-child(7)
+          &:nth-child(7),
+          &:nth-child(8)
             display block
             width 100%
             margin-bottom 15px
@@ -338,7 +352,8 @@
           
         &:nth-child(4),
         &:nth-child(5),
-        &:nth-child(6)
+        &:nth-child(6),
+        &:nth-child(7)
           width auto
         
         @media( max-width 1200px )
@@ -353,7 +368,8 @@
             width 35%
           
           &:nth-child(5),
-          &:nth-child(6)
+          &:nth-child(6),
+          &:nth-child(7)
             display none
             
       td
@@ -371,7 +387,8 @@
             font-size 14pt
             
           &:nth-child(5),
-          &:nth-child(6)
+          &:nth-child(6),
+          &:nth-child(7)
             display block
             width 100%
             margin-bottom 15px
@@ -401,7 +418,8 @@
           &:nth-child(5),
           &:nth-child(6),
           &:nth-child(7),
-          &:nth-child(8)
+          &:nth-child(8),
+          &:nth-child(9)
             display none
             
       td
@@ -419,13 +437,15 @@
           &:nth-child(5),
           &:nth-child(6),
           &:nth-child(7),
-          &:nth-child(8)
+          &:nth-child(8),
+          &:nth-child(9)
             display block
             width 100%
             margin-bottom 15px
             text-align center
             
-  &[ data-tab=commercial ]
+  &[ data-tab=commercial ],
+  &[ data-tab=commercial-estate ]
   
     table
     
@@ -446,7 +466,8 @@
             width 33.3%
           
           &:nth-child(4),
-          &:nth-child(5)
+          &:nth-child(5),
+          &:nth-child(6)
             display none
             
       td
@@ -460,7 +481,8 @@
             font-size 14pt
             
           &:nth-child(4),
-          &:nth-child(5)
+          &:nth-child(5),
+          &:nth-child(6)
             display block
             width 100%
             margin-bottom 15px
