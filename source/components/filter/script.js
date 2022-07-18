@@ -908,9 +908,5 @@
       }
       return query;
     }
-
-    /*if ( window.BX ) {
-      BX.addCustomEvent( "onFrameDataReceived", function () {});
-    }*/
   });
 })(jQuery);
