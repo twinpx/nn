@@ -262,3 +262,20 @@
       
   @media print
     display none
+
+white-color = rgba(255, 255, 255, 0)
+hover-color = rgba(243, 242, 233, 1)
+visited-color = rgba(20, 101, 192, 0.05)
+text-color = rgba(0, 0, 0, 1)
+visited-text-color = rgba(0, 51, 106, 0.8)
+visited-border-color = rgba(20, 101, 192, 1)
+
+.b-filter
+  background-color white-color
+  color text-color
+  &:hover
+    background-color hover-color
+  &:visited
+    background-color visited-color
+    color visited-text-color
+    border-bottom-color visited-border-color
