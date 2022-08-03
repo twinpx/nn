@@ -178,7 +178,6 @@
   
   th
     position sticky
-    position -webkit-sticky
     top 0
     z-index 1
     font-size 7pt
@@ -187,6 +186,25 @@
     text-align center
     padding-bottom 19px
     cursor pointer
+    user-select none
+
+    &[aria-sort]
+      color #c7bc5b
+    
+      &:after
+        content ''
+        display inline-block
+        width 0
+        height 0
+        border-style solid
+        border-width 0 3px 3px 3px
+        border-color transparent transparent #c7bc5b transparent
+        margin 0 0 2px 5px
+
+    &[aria-sort="descending"]
+    
+      &:after
+        transform( rotate(180deg))
         
   thead,
   tbody
@@ -204,9 +222,24 @@
       &.b-filter--visited
         background-color rgba(20, 101, 192, 0.05)
         color rgba(0, 51, 106, 0.8)
-        border-bottom-color rgba(20, 101, 192, 1)
+        border-bottom-color #1465C0
+
+        @media(max-width 1200px)
+          border-top 1px solid #1465C0
+          margin-top -1px
+          position relative
+          z-index 10
+
+        &:hover
+          background-color rgba(20, 101, 192, 0.05)
+
+        td
+          border-top 1px solid #1465C0
+
+          @media(max-width 1200px)
+            border-top 0
       
-      &.i-action
+      &.b-filter--action
         color #cc0000
 
       &:hover
