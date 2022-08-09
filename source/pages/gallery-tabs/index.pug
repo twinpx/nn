@@ -1,0 +1,23 @@
+extends ../../layouts/main
+
+block title
+  title Галерея с табами | NN
+  
+block ph-styles
+  link( href="/template/placeholders/gallery.css" rel="stylesheet" )
+
+block content
+  
+  .container
+
+    hr
+    h1 Галерея с табами
+  
+  section#tabsGallery.container
+
+    .b-tabs-gallery__ph
+  
+    include ../../components/gallery-tabs/template
+  
+  hr.i-size-L
+  

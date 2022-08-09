@@ -1,12 +1,11 @@
-( function($) {
+window.addEventListener('load', function () {
+  var hrefArray = window.location.href.split('/').reverse();
+  var id = hrefArray[0] || hrefArray[1];
 
-  'use strict';
-  
-  $( function() {
-  
-    /*if ( window.BX ) {
-      BX.addCustomEvent( "onFrameDataReceived", function () {});
-    }*/
-  });
+  var detailObject = window.sessionStorage.getItem('detailObject')
+    ? JSON.parse(window.sessionStorage.getItem('detailObject'))
+    : {};
 
-}( jQuery ));
+  detailObject[id] = 'visited';
+  window.sessionStorage.setItem('detailObject', JSON.stringify(detailObject));
+});

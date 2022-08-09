@@ -740,7 +740,12 @@
             cls = 'b-filter--action ';
           }
 
-          if (element.Visited) {
+          if (
+            window.sessionStorage.getItem('detailObject') &&
+            JSON.parse(window.sessionStorage.getItem('detailObject'))[
+              element.ExternalId
+            ] === 'visited'
+          ) {
             cls += 'b-filter--visited ';
           }
 
