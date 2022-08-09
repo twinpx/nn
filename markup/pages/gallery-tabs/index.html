@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Links tree | NN</title>
+    <title>Галерея с табами | NN</title>
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -16,7 +16,7 @@
     <script src="/template/script.js"></script>
   </head>
   <body>
-    <link href="/template/placeholders/main.css" rel="stylesheet">
+    <link href="/template/placeholders/gallery-tabs.css" rel="stylesheet">
     <header class="b-header">
       <div class="b-header__ph">
         <div class="b-header__ph-container container">
@@ -49,31 +49,84 @@
       </div>
     </header>
     <div class="container">
-      <hr class="i-size-XL">
-      <h1>NN</h1>
-      <ul>
-        <li><a href="/pages/main/">Главная</a></li>
-        <li><a href="/pages/galleries/">Галерея с белыми и синими стрелками</a></li>
-        <li><a href="/pages/gallery-tabs/">Галерея с табами</a></li>
-        <li><a href="/pages/offers/">Типы предложений</a></li>
-        <li><a href="/pages/prices/">Цены</a></li>
-        <li><a href="/pages/detail/">Детальная страница</a></li>
-        <li><a href="/pages/form/">Форма</a></li>
-        <li><a href="/pages/plan/">Генплан</a></li>
-        <li><a href="/pages/visual/">Визуальный выборщик</a></li>
-        <li><a href="/pages/actions/">Акции</a></li>
-        <li><a href="/pages/actions/actions-detail/">Акция детально</a></li>
-        <li><a href="/pages/news/">Новости</a></li>
-        <li><a href="/pages/news/news-detail/">Новость детально</a></li>
-        <li><a href="/pages/gallery/">Галерея</a></li>
-        <li><a href="/pages/docs/">Документы</a></li>
-        <li><a href="/pages/hypothec/">Ипотека</a></li>
-        <li><a href="/pages/2-rooms/">2-комнатные</a></li>
-        <li><a href="/pages/kvartiry-s-otdelkoy/">Квартиры с отделкой</a></li>
-        <li><a href="/subdomains/taunkhausy/">taunkhausy.n-nk.ru</a></li>
-      </ul>
-      <hr class="i-size-XL">
+      <hr>
+      <h1>Галерея с табами</h1>
     </div>
+    <section class="container" id="tabsGallery">
+      <div class="b-tabs-gallery__ph">
+        <div class="b-tabs-gallery__ph__nav"></div>
+        <div class="b-tabs-gallery__ph__gallery">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <!-- start /components/gallery-tabs/-->
+      <link href="/template/swiper.min.css" rel="stylesheet">
+      <script src="/template/swiper.min.js"></script>
+      <link rel="stylesheet" href="/components/gallery-tabs/style.css">
+      <script src="/components/gallery-tabs/script.js"></script>
+      <div class="b-tabs-gallery">
+        <div class="b-tabs-gallery__nav"><a class="i-active" href="" data-tab="gallery1">ГАЛЕРЕЯ 1</a><a href="" data-tab="gallery2">ГАЛЕРЕЯ 2</a><a href="" data-tab="gallery3">ГАЛЕРЕЯ 3</a></div>
+        <div class="b-tabs-gallery__tab i-active" data-tab="gallery1">
+          <div class="b-tabs-gallery__arrows">
+            <div class="b-tabs-gallery__arrows-prev"></div>
+            <div class="b-tabs-gallery__arrows-next"></div>
+          </div>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/1.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/2.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/3.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/4.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/5.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/6.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/7.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/8.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/9.jpg" alt=""></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="b-tabs-gallery__tab" data-tab="gallery2">
+          <div class="b-tabs-gallery__arrows">
+            <div class="b-tabs-gallery__arrows-prev"></div>
+            <div class="b-tabs-gallery__arrows-next"></div>
+          </div>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/2.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/3.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/4.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/5.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/6.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/7.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/8.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/9.jpg" alt=""></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="b-tabs-gallery__tab" data-tab="gallery3">
+          <div class="b-tabs-gallery__arrows">
+            <div class="b-tabs-gallery__arrows-prev"></div>
+            <div class="b-tabs-gallery__arrows-next"></div>
+          </div>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/3.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/4.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/5.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/6.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/7.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/8.jpg" alt=""></a></div>
+              <div class="swiper-slide"><a href=""><img src="/upload/gallery/9.jpg" alt=""></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end /components/gallery-tabs/-->
+    </section>
+    <hr class="i-size-L">
     <footer class="b-footer">
       <div class="container">
         <div class="b-footer__logo"><img src="/template/images/logo-nn.svg" alt="Ново-Никольское"></div>
