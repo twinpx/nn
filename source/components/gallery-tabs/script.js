@@ -27,7 +27,6 @@ window.addEventListener('DOMContentLoaded', function () {
     //swiper gallery
     tabs.forEach(function (tab) {
       new Swiper(tab.querySelector('.swiper'), {
-        loop: true,
         slidesPerView: 1,
         spaceBetween: 16,
 
@@ -49,6 +48,19 @@ window.addEventListener('DOMContentLoaded', function () {
         navigation: {
           nextEl: tab.querySelector('.b-tabs-gallery__arrows-next'),
           prevEl: tab.querySelector('.b-tabs-gallery__arrows-prev'),
+        },
+
+        on: {
+          afterInit: function (swiper) {
+            swiper.el
+              .querySelectorAll('.swiper-wrapper a')
+              .forEach(function (slideLink) {
+                slideLink.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  swiper.el.classList.add('b-tabs-gallery--fullscreen');
+                });
+              });
+          },
         },
       });
     });
