@@ -825,13 +825,12 @@
             typeof element.Price !== 'undefined' &&
             typeof element.PriceFormat !== 'undefined'
           ) {
+            var p = element.PriceFormat + ' руб.';
+            if (element.Sale === 'Y') {
+              p = '<s>' + element.PriceFormat + ' руб.</s>';
+            }
             tr += ' data-price="' + element.PriceFormat + '"';
-            price =
-              '<td data-sort="' +
-              element.Price +
-              '">' +
-              element.PriceFormat +
-              ' руб.</td>';
+            price = '<td data-sort="' + element.Price + '">' + p + '</td>';
           }
 
           if (typeof element.Finished !== 'undefined') {
@@ -841,6 +840,14 @@
                 '<td class="b-filter-table__finished"><img src="/template/images/finished.svg" title="Отделка завершена" alt="" width="30" height="30"></td>';
             } else {
               finished = '<td></td>';
+            }
+          }
+
+          if (typeof element.Sale !== 'undefined') {
+            tr += ' data-sale="' + element.Sale + '"';
+            if (element.Sale === 'Y') {
+              finished =
+                '<td class="b-filter-table__sale"><img src="/template/images/icon-sale.svg" title="Квартира участвуют в акции" alt="" width="30" height="30"></td>';
             }
           }
 
