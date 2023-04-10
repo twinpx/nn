@@ -1,14 +1,15 @@
 .b-fotorama
     
-  .b-fotorama__gallery( data-ratio="2.6" data-width="100%" data-arrows="true" data-click="true" data-swipe="true" data-loop="true" )
+  .b-fotorama__gallery( data-auto="false" data-click="false" )
   
-    .b-fotorama__frame
-        
-      .b-fotorama__sticky-content
-        .b-fotorama__height
-        .b-fotorama__text
-          p.h1 Все плюсы городской жизни в природном окружении
-          .b-button Заказать обратный звонок
+    .b-fotorama__frame 
+
+      .b-fotorama__counter-block
+        .b-fotorama__counter-block__title При покупке 3-х комнатной квартиры, мы дарим отделку в подарок, машиноместо за 50%. Спешите!
+        .b-fotorama__counter-block__row
+          .b-fotorama__counter-block__counter
+            .countdown( data-date="1680716352209")
+          a.b-button(href="") ПОДРОБНЕЕ
           
       .b-fotorama__container.i-show
         img.b-fotorama__image.hide-on-small-only( src="/upload/gallery/1.jpg" width="100%" alt="" )

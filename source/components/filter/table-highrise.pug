@@ -8,6 +8,14 @@
         i( style="background-image: url( '/upload/icons/filter.svg' );" )
 
       .b-filter-body
+          
+        label Отделка
+        .b-filter-finished.b-filter-radio( data-default="all" )
+          .b-filter-radio__item.b-filter-radio__item--active(data-value="all") Все
+          .b-filter-radio__item(data-value="Y") Есть
+          .b-filter-radio__item(data-value="N") Нет
+
+        p
       
         .b-filter__input
           span от

@@ -10,8 +10,9 @@
     "TotalArea": "117.20",
     "LandArea": "2.5",
     "PriceFormat": "31 292 400",
+    "OldPriceFormat": "131 292 400",
     "Action": true,
-    "Finished": ""
+    "Finished": "Y"
   },
   {
     "ExternalId": "636255-2018",

@@ -76,6 +76,7 @@
         self.$reset = self.$elem.find('.b-filter-reset');
         self.$mobileBtn = self.$elem.find('.b-filter-btn');
 
+        self.$finished = self.$elem.find('.b-filter-finished');
         self.$house = self.$elem.find('.b-filter-house');
         self.$section = self.$elem.find('.b-filter-section');
         self.$floors = self.$elem.find('.b-filter-floors');
@@ -179,28 +180,32 @@
       }
 
       function setValue(obj) {
-        //obj = { house: [1,2], section: [1,2], floors: [4,6], rooms: [1,2], square: [44,54], land: [4,6], price: [10000000,12000000] };
+        //obj = { finished: 'all', house: [1,2], section: [1,2], floors: [4,6], rooms: [1,2], square: [44,54], land: [4,6], price: [10000000,12000000] };
 
         for (var key in obj) {
-          self['$' + key].slider('values', 0, obj[key][0]);
-          self['$' + key].slider('values', 1, obj[key][1]);
-
-          if (key === 'price') {
-            self.$elem
-              .find('.b-filter-' + key + '-value')
-              .text(
-                Number(obj[key][0]).toLocaleString('ru-RU') +
-                  ' — ' +
-                  Number(obj[key][1]).toLocaleString('ru-RU') +
-                  ' руб.'
-              );
+          if (typeof obj[key] === 'string') {
+            setRadio(self['$' + key], obj[key]);
           } else {
-            self['$' + key]
-              .find('.ui-slider-handle:eq(0) span')
-              .text(obj[key][0]);
-            self['$' + key]
-              .find('.ui-slider-handle:eq(1) span')
-              .text(obj[key][1]);
+            self['$' + key].slider('values', 0, obj[key][0]);
+            self['$' + key].slider('values', 1, obj[key][1]);
+
+            if (key === 'price') {
+              self.$elem
+                .find('.b-filter-' + key + '-value')
+                .text(
+                  Number(obj[key][0]).toLocaleString('ru-RU') +
+                    ' — ' +
+                    Number(obj[key][1]).toLocaleString('ru-RU') +
+                    ' руб.'
+                );
+            } else {
+              self['$' + key]
+                .find('.ui-slider-handle:eq(0) span')
+                .text(obj[key][0]);
+              self['$' + key]
+                .find('.ui-slider-handle:eq(1) span')
+                .text(obj[key][1]);
+            }
           }
         }
 
@@ -210,6 +215,10 @@
       function setReset() {
         self.$reset.click(function () {
           var obj = {};
+
+          if (self.$finished.length) {
+            obj.finished = self.$finished.getAttribute('data-default');
+          }
 
           if (self.$house.length) {
             obj.house = [
@@ -279,6 +288,21 @@
                   .text()
               );
             }
+          });
+        });
+      }
+
+      function setFinishedRadio() {
+        if (!self.$finished.length) return;
+        var items = self.$finished[0].querySelectorAll('.b-filter-radio__item');
+        items.forEach(function (item) {
+          item.addEventListener('click', function (e) {
+            e.preventDefault();
+            items.forEach(function (i) {
+              i.classList.remove('b-filter-radio__item--active');
+            });
+            item.classList.add('b-filter-radio__item--active');
+            slideFilter();
           });
         });
       }
@@ -582,6 +606,7 @@
           success: function (data) {
             self.flatsArray = data;
 
+            setFinishedRadio();
             setHouseSlider();
             setSectionSlider();
             setRoomsSlider();
@@ -621,6 +646,10 @@
         } else {
           var array = [];
 
+          if (self.$finished.length) {
+            array.push(['finished', 'Finished']);
+          }
+
           if (self.$house.length) {
             array.push(['house', 'HouseCount']);
           }
@@ -653,7 +682,18 @@
             var flag = 1;
 
             array.forEach(function (elem) {
-              if (
+              if (self['$' + elem[0]][0].classList.contains('b-filter-radio')) {
+                var value = self['$' + elem[0]][0]
+                  .querySelector('.b-filter-radio__item--active')
+                  .getAttribute('data-value');
+
+                if (
+                  element[value === 'Y' && elem[1]] === '' ||
+                  element[value === 'N' && elem[1]] === 'Y'
+                ) {
+                  flag *= 0;
+                }
+              } else if (
                 element[elem[1]] < self['$' + elem[0]].slider('values', 0) ||
                 element[elem[1]] > self['$' + elem[0]].slider('values', 1)
               ) {
@@ -760,6 +800,7 @@
             square,
             land,
             price,
+            oldPrice = '',
             finished;
           var end =
             '<td><a href="' +
@@ -825,30 +866,36 @@
             typeof element.Price !== 'undefined' &&
             typeof element.PriceFormat !== 'undefined'
           ) {
-            var p = element.PriceFormat + ' руб.';
-            if (element.Sale === 'Y') {
-              p = '<s>' + element.PriceFormat + ' руб.</s>';
+            if (element.OldPriceFormat) {
+              oldPrice = '<s>' + element.OldPriceFormat + ' руб.</s>';
             }
             tr += ' data-price="' + element.PriceFormat + '"';
-            price = '<td data-sort="' + element.Price + '">' + p + '</td>';
+            price =
+              '<td data-sort="' +
+              element.Price +
+              '">' +
+              element.PriceFormat +
+              ' руб.' +
+              oldPrice +
+              '</td>';
           }
 
           if (typeof element.Finished !== 'undefined') {
             tr += ' data-finished="' + element.Finished + '"';
+
             if (element.Finished === 'Y') {
               finished =
-                '<td class="b-filter-table__finished"><img src="/template/images/finished.svg" title="Отделка завершена" alt="" width="30" height="30"></td>';
+                '<td class="b-filter-table__finished"><img src="/template/images/finished.svg" title="Отделка завершена" alt="" width="30" height="30">';
             } else {
-              finished = '<td></td>';
+              finished = '<td>';
             }
-          }
 
-          if (typeof element.Sale !== 'undefined') {
-            tr += ' data-sale="' + element.Sale + '"';
-            if (element.Sale === 'Y') {
-              finished =
-                '<td class="b-filter-table__sale"><img src="/template/images/icon-sale.svg" title="Квартира участвуют в акции" alt="" width="30" height="30"></td>';
+            if (typeof element.OldPriceFormat !== 'undefined') {
+              finished +=
+                '<img src="/template/images/icon-sale.svg" title="Квартира участвует в акции" alt="" width="30" height="30">';
             }
+
+            finished += '</td>';
           }
 
           tr +=

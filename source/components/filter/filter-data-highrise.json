@@ -11,9 +11,9 @@
     "FlatRoomsCount": "4",
     "TotalArea": "117.20",
     "PriceFormat": "31 292 400",
+    "OldPriceFormat": "131 292 400",
     "Action": true,
-    "Finished": "",
-    "Sale": "Y"
+    "Finished": ""
   },
   {
     "ExternalId": "636255-2018",
@@ -28,8 +28,7 @@
     "TotalArea": "112.20",
     "PriceFormat": "20 377 600",
     "Visited": true,
-    "Finished": "",
-    "Sale": ""
+    "Finished": ""
   },
   {
     "ExternalId": "636256-2018",
@@ -43,8 +42,8 @@
     "FlatRoomsCount": "3",
     "TotalArea": "113.20",
     "PriceFormat": "20 034 900",
-    "Finished": "",
-    "Sale": "Y"
+    "OldPriceFormat": "25 034 900",
+    "Finished": "Y"
   },
   {
     "ExternalId": "636278-2018",
@@ -58,8 +57,7 @@
     "FlatRoomsCount": "4",
     "TotalArea": "114.20",
     "PriceFormat": "27 878 000",
-    "Finished": "",
-    "Sale": ""
+    "Finished": ""
   },
   {
     "ExternalId": "636166-2018",
@@ -73,8 +71,7 @@
     "FlatRoomsCount": "5",
     "TotalArea": "115.20",
     "PriceFormat": "11 429 400",
-    "Finished": "",
-    "Sale": ""
+    "Finished": ""
   },
   {
     "ExternalId": "636167-2018",
@@ -88,8 +85,7 @@
     "FlatRoomsCount": "6",
     "TotalArea": "116.20",
     "PriceFormat": "12 070 800",
-    "Finished": "Y",
-    "Sale": ""
+    "Finished": "Y"
   },
   {
     "ExternalId": "636286-2018",
@@ -103,7 +99,6 @@
     "FlatRoomsCount": "7",
     "TotalArea": "117.20",
     "PriceFormat": "17 323 600",
-    "Finished": "",
-    "Sale": ""
+    "Finished": ""
   }
 ]
